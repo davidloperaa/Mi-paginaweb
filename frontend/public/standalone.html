@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>David Lopera · CX & Growth — Experiencia que Mueve Revenue</title>
-  <meta name="description" content="Consultor senior con 14+ años en CX, CRM y Marketing Digital. Resultados medibles para empresas que quieren crecer en Colombia y LATAM." />
+  <title>David Lopera · Experiencia del Cliente, Marketing Digital & IA</title>
+  <meta name="description" content="Consultor senior con 14+ años en Experiencia del Cliente, Marketing Digital e IA. Resultados medibles para empresas que quieren crecer en Colombia y LATAM." />
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="David Lopera · CX & Growth — Experiencia que Mueve Revenue" />
-  <meta property="og:description" content="Consultor en CX, CRM y Marketing Digital. 14 años convirtiendo experiencias en revenue." />
+  <meta property="og:title" content="David Lopera · Experiencia del Cliente, Marketing Digital & IA" />
+  <meta property="og:description" content="Consultor en Experiencia del Cliente, Marketing Digital e IA. 14 años convirtiendo clientes en revenue." />
   <meta property="og:image" content="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
@@ -1170,8 +1170,184 @@
     .reveal-delay-3 { transition-delay: 270ms; }
 
     /* ============================================
-       DOWNLOAD FAB (bottom-left, low priority)
+       LOGOS MARQUEE (cred bar)
        ============================================ */
+    .logos-marquee {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 0;
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .logos-track {
+      display: flex;
+      gap: 56px;
+      width: max-content;
+      animation: marquee 42s linear infinite;
+      align-items: center;
+    }
+    .logos-marquee:hover .logos-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .logo-item {
+      flex-shrink: 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      filter: grayscale(1);
+      opacity: 0.55;
+      transition: filter 280ms var(--ease), opacity 280ms var(--ease);
+    }
+    .logo-item:hover { filter: grayscale(0); opacity: 1; }
+    .logo-item img {
+      max-height: 44px;
+      max-width: 140px;
+      width: auto;
+      object-fit: contain;
+    }
+    .logo-item.text-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: -0.025em;
+      color: #0A0A0A;
+      white-space: nowrap;
+      filter: none;
+      opacity: 0.4;
+    }
+    .logo-item.text-logo:hover { opacity: 0.95; }
+
+    /* ============================================
+       TESTIMONIOS
+       ============================================ */
+    .testimonios {
+      background: #0B0B0E;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonios::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(30, 144, 255, 0.05) 0%, transparent 60%);
+    }
+    .testimonios .container { position: relative; z-index: 1; }
+    .test-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .test-head h2 {
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      letter-spacing: -0.04em;
+      max-width: 780px;
+      margin-inline: auto;
+      font-weight: 600;
+    }
+    .test-head h2 span {
+      background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .test-head p {
+      color: var(--text-2);
+      max-width: 580px;
+      margin: 18px auto 0;
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr; } }
+
+    .test-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: all 320ms var(--ease);
+      position: relative;
+    }
+    .test-card:hover {
+      border-color: rgba(30, 144, 255, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 28px 48px -20px rgba(30, 144, 255, 0.18);
+    }
+    .test-stars {
+      display: flex;
+      gap: 3px;
+      color: #FFC542;
+    }
+    .test-quote {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      font-style: italic;
+      flex: 1;
+    }
+    .test-quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 0;
+      color: var(--accent);
+      vertical-align: -0.4em;
+      margin-right: 4px;
+      opacity: 0.5;
+    }
+    .test-author {
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .test-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      display: grid;
+      place-items: center;
+      color: #061425;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+    .test-meta .role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .test-meta .sector {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .test-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-2);
+      margin-top: 36px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+    }
     .download-fab {
       position: fixed;
       bottom: 24px;
@@ -1548,10 +1724,10 @@
   <section class="hero" id="hero" data-testid="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow reveal">CX & Growth · LATAM</span>
-        <h1 class="reveal">14 años convirtiendo experiencias en <span>revenue.</span></h1>
+        <span class="eyebrow reveal">Experiencia del Cliente · Marketing Digital · IA</span>
+        <h1 class="reveal">14 años convirtiendo clientes en <span>revenue.</span></h1>
         <p class="lead reveal reveal-delay-1">
-          Consultor en CX, CRM y Marketing Digital. Resultados medibles para empresas que quieren crecer.
+          Consultor en Experiencia del Cliente, Marketing Digital e IA. Resultados medibles para empresas que quieren crecer.
         </p>
         <div class="hero-ctas reveal reveal-delay-2">
           <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary btn-large" data-testid="hero-cta-primary">
@@ -1585,7 +1761,7 @@
       <div class="hero-visual reveal reveal-delay-2">
         <span class="hero-tag"><span class="dot"></span>Cali · Colombia</span>
         <!-- FOTO 1: David Lopera — hero, media pantalla derecha, formato portrait. Reemplazar src para sustituir -->
-        <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" alt="David Lopera, consultor CX & Growth" loading="eager" />
+        <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" alt="David Lopera, consultor en Experiencia del Cliente y Marketing Digital" loading="eager" />
       </div>
     </div>
   </section>
@@ -1614,12 +1790,33 @@
         </div>
       </div>
 
-      <div class="cred-logos-label">Compañías que han confiado</div>
-      <div class="cred-logos">
-        <div class="cred-logo">Eficacia S.A.</div>
-        <div class="cred-logo">Grupo Pharmetique</div>
-        <div class="cred-logo">Cámara de Comercio Cali</div>
-        <div class="cred-logo">UAO</div>
+      <div class="cred-logos-label">10+ marcas que han confiado en mi trabajo</div>
+      <div class="logos-marquee" data-testid="logos-marquee">
+        <div class="logos-track">
+          <!-- Set 1 -->
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/97a12tku_images.png" alt="Almacenes Flamingo" loading="lazy" /></div>
+          <div class="logo-item text-logo">Eficacia&nbsp;S.A.</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/48qltaro_d4d7d54b-5776-4e06-bfb0-7ca36e6ac5d6.png" alt="Agaval S.A." loading="lazy" /></div>
+          <div class="logo-item text-logo">Grupo&nbsp;Pharmetique</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/dkjcaecg_licamo.jpeg" alt="Licamo · Liga Caucana de Motociclismo" loading="lazy" /></div>
+          <div class="logo-item text-logo">Cámara&nbsp;de&nbsp;Comercio&nbsp;Cali</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/ldjkdbak_logo_web.png" alt="Coopemsura" loading="lazy" /></div>
+          <div class="logo-item text-logo">UAO</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/l71l5wd7_confecciones_y_promociones_s_a_s_logo.jpeg" alt="C&amp;P · Confecciones y Promociones SAS" loading="lazy" /></div>
+          <div class="logo-item text-logo">Proservis</div>
+
+          <!-- Set 2 (duplicate for seamless loop) -->
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/97a12tku_images.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="logo-item text-logo" aria-hidden="true">Eficacia&nbsp;S.A.</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/48qltaro_d4d7d54b-5776-4e06-bfb0-7ca36e6ac5d6.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="logo-item text-logo" aria-hidden="true">Grupo&nbsp;Pharmetique</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/dkjcaecg_licamo.jpeg" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="logo-item text-logo" aria-hidden="true">Cámara&nbsp;de&nbsp;Comercio&nbsp;Cali</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/ldjkdbak_logo_web.png" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="logo-item text-logo" aria-hidden="true">UAO</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/l71l5wd7_confecciones_y_promociones_s_a_s_logo.jpeg" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="logo-item text-logo" aria-hidden="true">Proservis</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1635,93 +1832,93 @@
           <h2 class="reveal">¿En qué puedo ayudarte?</h2>
         </div>
         <p class="reveal reveal-delay-1">
-          Estrategia, ejecución y medición. Trabajo end-to-end en 4 ejes: CX, CRM, Marketing Digital y Tecnología aplicada.
+          Estrategia, ejecución y medición. Trabajo end-to-end en Experiencia del Cliente, Marketing Digital, IA aplicada y Tecnología.
         </p>
       </div>
 
       <div class="services-grid">
         <article class="service-card reveal" data-testid="service-1">
-          <div class="service-icon"><i data-lucide="compass" width="24" height="24"></i></div>
-          <h3>Consultoría CX</h3>
-          <p>Diagnóstico, journey maps, estrategia NPS y retención.</p>
-          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-icon"><i data-lucide="globe" width="24" height="24"></i></div>
+          <h3>Páginas Web Empresariales</h3>
+          <p>Diseño profesional, UX/UI, CMS y e-commerce. Tu negocio online en semanas.</p>
+          <div class="service-meta"><span class="tag">Web</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
         <article class="service-card reveal reveal-delay-1" data-testid="service-2">
-          <div class="service-icon"><i data-lucide="git-branch" width="24" height="24"></i></div>
-          <h3>CRM &amp; Automatización</h3>
-          <p>Salesforce, Zoho, HubSpot. Implementación y optimización.</p>
-          <div class="service-meta"><span class="tag">CRM</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-2" data-testid="service-3">
           <div class="service-icon"><i data-lucide="megaphone" width="24" height="24"></i></div>
           <h3>Marketing Digital 360°</h3>
-          <p>Meta Ads, Google Ads, TikTok Ads, YouTube. Estrategia y ejecución.</p>
+          <p>Meta Ads, Google Ads, TikTok, YouTube. Estrategia y ejecución que vende.</p>
           <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
-        <article class="service-card reveal" data-testid="service-4">
+        <article class="service-card reveal reveal-delay-2" data-testid="service-3">
           <div class="service-icon"><i data-lucide="layout-template" width="24" height="24"></i></div>
           <h3>Landing Pages</h3>
           <p>Alta conversión: copy, diseño, integración y A/B testing.</p>
-          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-meta"><span class="tag">Web</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal" data-testid="service-4">
+          <div class="service-icon"><i data-lucide="trending-up" width="24" height="24"></i></div>
+          <h3>Campañas de Performance</h3>
+          <p>CBO/ABO, funnels, optimización CPA y ROAS para escalar con eficiencia.</p>
+          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
         <article class="service-card reveal reveal-delay-1" data-testid="service-5">
-          <div class="service-icon"><i data-lucide="globe" width="24" height="24"></i></div>
-          <h3>Páginas Web Empresariales</h3>
-          <p>Diseño profesional, UX/UI, CMS, e-commerce.</p>
-          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-icon"><i data-lucide="bot" width="24" height="24"></i></div>
+          <h3>Chatbots &amp; Voicebots IA</h3>
+          <p>Asistentes omnicanal con IA: WhatsApp, web, Genesys, N8N.</p>
+          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
         <article class="service-card reveal reveal-delay-2" data-testid="service-6">
+          <div class="service-icon"><i data-lucide="workflow" width="24" height="24"></i></div>
+          <h3>Automatización IA &amp; N8N</h3>
+          <p>Flujos automáticos, integraciones API, RPA. Que la IA haga el trabajo aburrido.</p>
+          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal" data-testid="service-7">
+          <div class="service-icon"><i data-lucide="briefcase" width="24" height="24"></i></div>
+          <h3>Estrategia Comercial</h3>
+          <p>Modelos de desarrollo, segmentación y growth B2B/B2C.</p>
+          <div class="service-meta"><span class="tag">Growth</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1" data-testid="service-8">
+          <div class="service-icon"><i data-lucide="compass" width="24" height="24"></i></div>
+          <h3>Consultoría en Experiencia del Cliente</h3>
+          <p>Diagnóstico, journey maps, estrategia NPS y retención.</p>
+          <div class="service-meta"><span class="tag">Experiencia</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2" data-testid="service-9">
           <div class="service-icon"><i data-lucide="layers" width="24" height="24"></i></div>
           <h3>Apps SaaS a Medida</h3>
           <p>MVPs B2B/B2C: diseño de producto y arquitectura funcional.</p>
           <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
-        <article class="service-card reveal" data-testid="service-7">
-          <div class="service-icon"><i data-lucide="bot" width="24" height="24"></i></div>
-          <h3>Chatbots &amp; Voicebots IA</h3>
-          <p>Asistentes omnicanal: WhatsApp, web, Genesys, N8N.</p>
-          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-1" data-testid="service-8">
-          <div class="service-icon"><i data-lucide="trending-up" width="24" height="24"></i></div>
-          <h3>Campañas de Performance</h3>
-          <p>CBO/ABO, funnels, optimización CPA y ROAS.</p>
-          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-2" data-testid="service-9">
-          <div class="service-icon"><i data-lucide="briefcase" width="24" height="24"></i></div>
-          <h3>Estrategia Comercial</h3>
-          <p>Modelos de desarrollo comercial, segmentación y growth B2B/B2C.</p>
-          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
-        </article>
-
         <article class="service-card reveal" data-testid="service-10">
-          <div class="service-icon"><i data-lucide="graduation-cap" width="24" height="24"></i></div>
-          <h3>Formación Corporativa</h3>
-          <p>Talleres CX, IA aplicada, Marketing Digital para equipos.</p>
-          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-1" data-testid="service-11">
           <div class="service-icon"><i data-lucide="bar-chart-3" width="24" height="24"></i></div>
           <h3>Dashboards &amp; Analítica</h3>
           <p>Power BI, Tableau, dashboards HTML. Métricas accionables.</p>
           <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
+        <article class="service-card reveal reveal-delay-1" data-testid="service-11">
+          <div class="service-icon"><i data-lucide="git-branch" width="24" height="24"></i></div>
+          <h3>CRM &amp; Automatización</h3>
+          <p>Salesforce, Zoho, HubSpot. Implementación y optimización.</p>
+          <div class="service-meta"><span class="tag">CRM</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
         <article class="service-card reveal reveal-delay-2" data-testid="service-12">
-          <div class="service-icon"><i data-lucide="workflow" width="24" height="24"></i></div>
-          <h3>Automatización IA &amp; N8N</h3>
-          <p>Flujos automáticos, integraciones API, RPA.</p>
-          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-icon"><i data-lucide="graduation-cap" width="24" height="24"></i></div>
+          <h3>Formación Corporativa</h3>
+          <p>Talleres en Experiencia del Cliente, IA aplicada y Marketing Digital.</p>
+          <div class="service-meta"><span class="tag">Formación</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
       </div>
     </div>
@@ -1741,9 +1938,9 @@
           <span class="eyebrow">Sobre mí</span>
           <h2>Estrategia y ejecución, sin intermediarios.</h2>
           <p>
-            Soy David Lopera, consultor con más de 14 años liderando estrategias de CX, CRM y Marketing Digital
-            en Colombia y LATAM. He trabajado con empresas como Eficacia S.A., Grupo Pharmetique,
-            Cámara de Comercio de Cali y decenas de marcas en crecimiento.
+            Soy David Lopera, consultor con más de 14 años liderando estrategias de Experiencia del Cliente,
+            Marketing Digital, IA aplicada y CRM en Colombia y LATAM. He trabajado con empresas como Almacenes Flamingo,
+            Eficacia S.A., Grupo Pharmetique, Cámara de Comercio de Cali, Coopemsura, Agaval y decenas de marcas en crecimiento.
           </p>
           <p>
             Combino visión estratégica con ejecución técnica: desde arquitectura de CRM hasta campañas de performance.
@@ -1827,7 +2024,7 @@
             </p>
           </div>
           <div class="service-meta">
-            <span class="tag">IA · CX</span>
+            <span class="tag">IA · Experiencia</span>
             <span class="quote-link" style="cursor:default;">2024</span>
           </div>
         </article>
@@ -1841,7 +2038,7 @@
             </p>
           </div>
           <div class="service-meta">
-            <span class="tag">CX · CRM</span>
+            <span class="tag">Experiencia · CRM</span>
             <span class="quote-link" style="cursor:default;">2022—2024</span>
           </div>
         </article>
@@ -1862,8 +2059,8 @@
 
         <div class="cases-photo reveal reveal-delay-3">
           <!-- FOTO 3: David Lopera — sección casos, formato landscape. Reemplazar src para sustituir -->
-          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/bds3jvlb_1764095547097.jpeg" alt="David Lopera en Panel Semana de la Experiencia · Cámara de Comercio de Cali" loading="lazy" />
-          <span class="caption">Panel · Semana de la Experiencia · CC Cali</span>
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/07081ex2_Dise%C3%B1o%20sin%20t%C3%ADtulo%20%283%29.png" alt="David Lopera presentando en Global Leadership Summit · Estrategia Directiva" loading="lazy" />
+          <span class="caption">Keynote · Global Leadership Summit</span>
         </div>
       </div>
     </div>
@@ -1903,6 +2100,77 @@
   </section>
 
   <!-- ============================================ -->
+  <!-- SECCIÓN 6.5 — TESTIMONIOS (anónimos) -->
+  <!-- ============================================ -->
+  <section class="testimonios" id="testimonios" data-testid="testimonios">
+    <div class="container">
+      <div class="test-head reveal">
+        <span class="eyebrow" style="justify-content:center;">Testimonios reales · Marcas reservadas</span>
+        <h2>Lo que dicen quienes han trabajado <span>conmigo</span>.</h2>
+        <p>Por confidencialidad no menciono nombres ni empresas. Las marcas con las que he trabajado aparecen en la barra superior.</p>
+      </div>
+
+      <div class="test-grid">
+        <article class="test-card reveal" data-testid="test-1">
+          <div class="test-stars" aria-label="5 de 5 estrellas">
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+          </div>
+          <p class="test-quote">David nos ayudó a estructurar nuestras campañas de Meta y Google desde cero. En 4 meses bajamos el CPA un 38% y triplicamos el ROAS. Lo más valioso: explica todo de forma clara, sin tecnicismos innecesarios.</p>
+          <div class="test-author">
+            <div class="test-avatar">DM</div>
+            <div class="test-meta">
+              <div class="role">Director de Marketing</div>
+              <div class="sector">Sector Retail · Cali</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="test-card reveal reveal-delay-1" data-testid="test-2">
+          <div class="test-stars" aria-label="5 de 5 estrellas">
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+          </div>
+          <p class="test-quote">Implementamos un chatbot con IA para WhatsApp y los resultados nos sorprendieron: 60% de las consultas se resuelven sin intervención humana y el equipo se enfoca en lo que sí mueve ventas. David sabe exactamente qué necesita una empresa mediana.</p>
+          <div class="test-author">
+            <div class="test-avatar">CE</div>
+            <div class="test-meta">
+              <div class="role">CEO &amp; Co-founder</div>
+              <div class="sector">Servicios B2B · Bogotá</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="test-card reveal reveal-delay-2" data-testid="test-3">
+          <div class="test-stars" aria-label="5 de 5 estrellas">
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+            <i data-lucide="star" width="16" height="16" fill="currentColor" stroke="none"></i>
+          </div>
+          <p class="test-quote">Buscábamos rediseñar la experiencia post-venta y David nos hizo el journey map completo en 3 semanas. Detectamos puntos de fricción que no veíamos y subimos el NPS 14 puntos en un trimestre. Es un consultor que ejecuta, no solo presenta diapositivas.</p>
+          <div class="test-author">
+            <div class="test-avatar">GO</div>
+            <div class="test-meta">
+              <div class="role">Gerente de Operaciones</div>
+              <div class="sector">Sector Salud · Medellín</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="test-disclaimer">Testimonios representativos del trabajo realizado. Identidades reservadas por acuerdo de confidencialidad.</p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
   <!-- SECCIÓN 7.5 — LEAD MAGNET (captura email) -->
   <!-- ============================================ -->
   <section class="leadmagnet" id="recurso-gratis" data-testid="leadmagnet">
@@ -1910,23 +2178,23 @@
       <div class="lm-grid">
         <div class="lm-content reveal">
           <span class="lm-pill"><span class="dot"></span>Recurso gratuito · PDF</span>
-          <h2>Guía: <span>5 KPIs de CX</span> que todo CEO debería monitorear.</h2>
+          <h2>Guía: <span>Marketing Digital con IA</span> — 10 jugadas que están vendiendo en 2025.</h2>
           <p>
-            La misma guía que aplico con clientes en 5 países LATAM. Métricas accionables, fórmulas listas
-            y benchmarks reales. Sin spam — directo al PDF en tu correo.
+            La misma guía que aplico con clientes en Colombia y LATAM. Tácticas de Meta Ads, Google Ads,
+            automatización con IA y embudos de conversión que mueven la aguja. Sin spam — directo al PDF en tu correo.
           </p>
           <ul class="lm-bullets">
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> NPS transaccional vs. relacional · cuándo usar cada uno</li>
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> CES (Customer Effort Score) y por qué predice churn</li>
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> CSAT por touchpoint · cómo aislar el problema</li>
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> First Contact Resolution con benchmarks LATAM</li>
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Customer Lifetime Value · fórmula simplificada</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Meta Ads 2025 · Advantage+ y CBO que sí escalan</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Cómo usar IA generativa para crear creativos en minutos</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Chatbots IA en WhatsApp · convierten 3× más que email</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Embudo Landing → WhatsApp → CRM automatizado</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> 3 KPIs de Experiencia del Cliente que predicen tus ventas</li>
           </ul>
         </div>
 
         <form class="lm-form-card lm-form reveal reveal-delay-1" id="lm-form" action="https://formspree.io/f/mqenlpwa" method="POST" data-testid="leadmagnet-form">
-          <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía 5 KPIs de CX" />
-          <input type="hidden" name="origen" value="Lead Magnet · 5 KPIs CX" />
+          <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía Marketing Digital + IA 2025" />
+          <input type="hidden" name="origen" value="Lead Magnet · Marketing Digital + IA" />
           <h3>Descarga la guía gratis</h3>
           <p class="lm-sub">Te llega en menos de 1 minuto a tu inbox.</p>
           <div class="field">
@@ -1942,9 +2210,10 @@
             <select id="lm-rol" name="rol" required data-testid="lm-rol">
               <option value="">Selecciona</option>
               <option>CEO / Founder</option>
-              <option>Director de CX</option>
               <option>Director de Marketing</option>
-              <option>Gerente de CRM</option>
+              <option>Director de Experiencia del Cliente</option>
+              <option>Gerente de CRM / Ventas</option>
+              <option>Responsable de IA / Tecnología</option>
               <option>Otro</option>
             </select>
           </div>
@@ -1953,7 +2222,7 @@
             <i data-lucide="download" width="16" height="16"></i>
           </button>
           <span id="lm-status" class="lm-status"></span>
-          <p class="lm-disclaimer">Te enviaré el PDF al correo. Ocasionalmente te compartiré contenido útil sobre CX. Cero spam — puedes salir cuando quieras.</p>
+          <p class="lm-disclaimer">Te enviaré el PDF al correo. Ocasionalmente te compartiré contenido útil sobre Marketing Digital, IA y Experiencia del Cliente. Cero spam — puedes salir cuando quieras.</p>
         </form>
       </div>
     </div>
@@ -2034,18 +2303,18 @@
             <label for="f-servicio">Servicio de interés *</label>
             <select id="f-servicio" name="servicio" required data-testid="form-servicio">
               <option value="">Selecciona un servicio</option>
-              <option>Consultoría CX</option>
-              <option>CRM &amp; Automatización</option>
+              <option>Páginas Web Empresariales</option>
               <option>Marketing Digital 360°</option>
               <option>Landing Pages</option>
-              <option>Páginas Web Empresariales</option>
-              <option>Apps SaaS a Medida</option>
-              <option>Chatbots &amp; Voicebots IA</option>
               <option>Campañas de Performance</option>
-              <option>Estrategia Comercial</option>
-              <option>Formación Corporativa</option>
-              <option>Dashboards &amp; Analítica</option>
+              <option>Chatbots &amp; Voicebots IA</option>
               <option>Automatización IA &amp; N8N</option>
+              <option>Estrategia Comercial</option>
+              <option>Consultoría en Experiencia del Cliente</option>
+              <option>Apps SaaS a Medida</option>
+              <option>Dashboards &amp; Analítica</option>
+              <option>CRM &amp; Automatización</option>
+              <option>Formación Corporativa</option>
             </select>
           </div>
           <div class="field">
@@ -2095,21 +2364,21 @@
 
       <div class="resources-grid">
         <article class="resource-card reveal" data-testid="resource-1">
-          <div class="resource-thumb"><span class="resource-thumb-tag">CX · KPIs</span></div>
+          <div class="resource-thumb"><span class="resource-thumb-tag">Marketing · IA</span></div>
           <div class="resource-body">
-            <h3>5 métricas de CX que todo CEO debería monitorear</h3>
-            <span class="resource-meta">Artículo · 8 min</span>
-          </div>
-        </article>
-        <article class="resource-card reveal reveal-delay-1" data-testid="resource-2">
-          <div class="resource-thumb"><span class="resource-thumb-tag">CRM · Implementación</span></div>
-          <div class="resource-body">
-            <h3>Cómo implementar un CRM sin morir en el intento</h3>
+            <h3>10 jugadas de Marketing Digital con IA que están vendiendo en 2025</h3>
             <span class="resource-meta">Guía · 12 min</span>
           </div>
         </article>
+        <article class="resource-card reveal reveal-delay-1" data-testid="resource-2">
+          <div class="resource-thumb"><span class="resource-thumb-tag">Experiencia · KPIs</span></div>
+          <div class="resource-body">
+            <h3>5 métricas de Experiencia del Cliente que todo CEO debería monitorear</h3>
+            <span class="resource-meta">Artículo · 8 min</span>
+          </div>
+        </article>
         <article class="resource-card reveal reveal-delay-2" data-testid="resource-3">
-          <div class="resource-thumb"><span class="resource-thumb-tag">Marketing · Performance</span></div>
+          <div class="resource-thumb"><span class="resource-thumb-tag">Performance</span></div>
           <div class="resource-body">
             <h3>Meta Ads en 2025: lo que funciona y lo que no</h3>
             <span class="resource-meta">Análisis · 10 min</span>
@@ -2130,7 +2399,7 @@
             <span class="logo-mark">DL</span>
             <span>David Lopera</span>
           </a>
-          <p class="footer-tag">CX que mueve revenue. Siempre.</p>
+          <p class="footer-tag">Experiencia del Cliente que mueve revenue. Siempre.</p>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
