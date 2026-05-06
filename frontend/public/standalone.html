@@ -1154,6 +1154,21 @@
       padding: 6px 12px;
       border-radius: 999px;
     }
+    .resource-soon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFC542;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 197, 66, 0.4);
+    }
     .resource-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
     .resource-body h3 {
       font-size: 1.2rem;
@@ -2276,10 +2291,10 @@
         </article>
 
         <article class="service-card reveal" data-testid="service-4">
-          <div class="service-icon"><i data-lucide="trending-up" width="24" height="24"></i></div>
-          <h3>Campañas de Performance</h3>
-          <p>CBO/ABO, funnels, optimización CPA y ROAS para escalar con eficiencia.</p>
-          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-icon"><i data-lucide="layers" width="24" height="24"></i></div>
+          <h3>Aplicativos a la Medida</h3>
+          <p>Apps web y móviles, gestores de pedidos, intranets, ERPs ligeros y plataformas internas para tu negocio.</p>
+          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
         <article class="service-card reveal reveal-delay-1" data-testid="service-5">
@@ -2311,10 +2326,10 @@
         </article>
 
         <article class="service-card reveal reveal-delay-2" data-testid="service-9">
-          <div class="service-icon"><i data-lucide="layers" width="24" height="24"></i></div>
-          <h3>Apps SaaS a Medida</h3>
-          <p>MVPs B2B/B2C: diseño de producto y arquitectura funcional.</p>
-          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+          <div class="service-icon"><i data-lucide="trending-up" width="24" height="24"></i></div>
+          <h3>Campañas de Performance</h3>
+          <p>CBO/ABO, funnels, optimización CPA y ROAS para escalar con eficiencia.</p>
+          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
         </article>
 
         <article class="service-card reveal" data-testid="service-10">
@@ -2619,7 +2634,7 @@
           <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía Marketing Digital + IA 2026" />
           <input type="hidden" name="origen" value="Lead Magnet · Marketing Digital + IA" />
           <h3>Descarga la guía gratis</h3>
-          <p class="lm-sub">Te llega en menos de 1 minuto a tu inbox.</p>
+          <p class="lm-sub">Te enviaré el PDF a tu correo en menos de 24h hábiles.</p>
           <div class="field">
             <label for="lm-name">Nombre *</label>
             <input id="lm-name" name="nombre" type="text" required placeholder="Tu nombre" data-testid="lm-nombre" />
@@ -2729,12 +2744,12 @@
               <option>Páginas Web Empresariales</option>
               <option>Marketing Digital 360°</option>
               <option>Landing Pages</option>
-              <option>Campañas de Performance</option>
+              <option>Aplicativos a la Medida</option>
               <option>Chatbots &amp; Voicebots IA</option>
               <option>Automatización IA &amp; N8N</option>
               <option>Estrategia Comercial</option>
               <option>Consultoría en Experiencia del Cliente</option>
-              <option>Apps SaaS a Medida</option>
+              <option>Campañas de Performance</option>
               <option>Dashboards &amp; Analítica</option>
               <option>CRM &amp; Automatización</option>
               <option>Formación Corporativa</option>
@@ -2776,37 +2791,46 @@
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:24px; margin-bottom:8px;">
         <div>
-          <span class="eyebrow reveal">Insights</span>
+          <span class="eyebrow reveal">Insights · Próximamente</span>
           <h2 class="reveal">Contenido para crecer</h2>
         </div>
-        <a href="#" class="btn btn-light-ghost reveal reveal-delay-1" data-testid="resources-cta-all">
-          Ver todos los recursos
+        <a href="#recurso-gratis" class="btn btn-light-ghost reveal reveal-delay-1" data-testid="resources-cta-all">
+          Suscríbete y recíbelos
           <i data-lucide="arrow-right" width="16" height="16"></i>
         </a>
       </div>
 
       <div class="resources-grid">
-        <article class="resource-card reveal" data-testid="resource-1">
-          <div class="resource-thumb"><span class="resource-thumb-tag">Marketing · IA</span></div>
+        <a href="#recurso-gratis" class="resource-card reveal" data-testid="resource-1">
+          <div class="resource-thumb">
+            <span class="resource-thumb-tag">Marketing · IA</span>
+            <span class="resource-soon">Próximamente</span>
+          </div>
           <div class="resource-body">
             <h3>10 jugadas de Marketing Digital con IA que están vendiendo en 2026</h3>
-            <span class="resource-meta">Guía · 12 min</span>
+            <span class="resource-meta">Suscríbete para recibirlo →</span>
           </div>
-        </article>
-        <article class="resource-card reveal reveal-delay-1" data-testid="resource-2">
-          <div class="resource-thumb"><span class="resource-thumb-tag">Experiencia · KPIs</span></div>
+        </a>
+        <a href="#recurso-gratis" class="resource-card reveal reveal-delay-1" data-testid="resource-2">
+          <div class="resource-thumb">
+            <span class="resource-thumb-tag">Experiencia · KPIs</span>
+            <span class="resource-soon">Próximamente</span>
+          </div>
           <div class="resource-body">
             <h3>5 métricas de Experiencia del Cliente que todo CEO debería monitorear</h3>
-            <span class="resource-meta">Artículo · 8 min</span>
+            <span class="resource-meta">Suscríbete para recibirlo →</span>
           </div>
-        </article>
-        <article class="resource-card reveal reveal-delay-2" data-testid="resource-3">
-          <div class="resource-thumb"><span class="resource-thumb-tag">Performance</span></div>
+        </a>
+        <a href="#recurso-gratis" class="resource-card reveal reveal-delay-2" data-testid="resource-3">
+          <div class="resource-thumb">
+            <span class="resource-thumb-tag">Performance</span>
+            <span class="resource-soon">Próximamente</span>
+          </div>
           <div class="resource-body">
             <h3>Meta Ads en 2026: lo que funciona y lo que no</h3>
-            <span class="resource-meta">Análisis · 10 min</span>
+            <span class="resource-meta">Suscríbete para recibirlo →</span>
           </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>
@@ -3109,7 +3133,7 @@
             headers: { Accept: 'application/json' }
           });
           if (res.ok) {
-            lmStatus.textContent = '✓ Revisa tu correo · te enviamos la guía';
+            lmStatus.textContent = '✓ Listo · revisa tu correo en menos de 24h';
             lmStatus.classList.add('show', 'success');
             lmForm.reset();
           } else {
@@ -3198,3 +3222,4 @@ indow.lucide) lucide.createIcons();
   </script>
 </body>
 </html>
+html>
