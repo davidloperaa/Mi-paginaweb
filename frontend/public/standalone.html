@@ -16,10 +16,10 @@
   <!-- Favicon emoji -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23080808%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2260%22 font-family=%22Arial Black%22 fill=%22%231E90FF%22>DL</text></svg>" />
 
-  <!-- Google Fonts: Syne (display) + DM Sans (body) + JetBrains Mono (mono) -->
+  <!-- Google Fonts: Geist (clean modern sans) + Geist Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -80,8 +80,9 @@
     /* ============================================
        TYPOGRAPHY
        ============================================ */
-    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
-    .mono { font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.01em; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.035em; line-height: 1.08; }
+    h1 { font-weight: 700; letter-spacing: -0.045em; }
+    .mono { font-family: var(--font-mono); font-weight: 500; letter-spacing: -0.005em; }
 
     /* ============================================
        LAYOUT UTILS
@@ -195,18 +196,18 @@
       letter-spacing: -0.01em;
     }
     .logo-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
       display: grid;
       place-items: center;
       font-family: var(--font-display);
-      font-weight: 800;
+      font-weight: 700;
       color: #061425;
-      font-size: 15px;
+      font-size: 13px;
       letter-spacing: -0.04em;
-      box-shadow: 0 4px 14px -4px rgba(30, 144, 255, 0.5);
+      box-shadow: 0 4px 14px -4px rgba(30, 144, 255, 0.4);
     }
     .nav-links {
       display: flex;
@@ -286,16 +287,15 @@
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 6.2vw, 5.6rem);
-      letter-spacing: -0.035em;
-      line-height: 1.0;
+      font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      font-weight: 600;
     }
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: clamp(1.95rem, 9vw, 2.6rem);
-        line-height: 1.05;
-        word-break: normal;
-        overflow-wrap: break-word;
+        font-size: clamp(1.95rem, 8vw, 2.5rem);
+        line-height: 1.08;
       }
     }
     .hero h1 span {
@@ -427,9 +427,9 @@
     @media (max-width: 768px) { .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; } }
     .cred-stat .number {
       font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
-      letter-spacing: -0.04em;
+      font-weight: 600;
+      font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+      letter-spacing: -0.05em;
       color: var(--light-text);
       line-height: 1;
     }
@@ -702,9 +702,9 @@
 
     .case-figure {
       font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-      letter-spacing: -0.04em;
+      font-weight: 600;
+      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+      letter-spacing: -0.05em;
       line-height: 1.05;
       background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
       -webkit-background-clip: text;
@@ -790,25 +790,26 @@
       z-index: 1;
     }
     .step-number {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: var(--light-bg);
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.08);
       display: grid;
       place-items: center;
       font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 26px;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.04em;
       color: var(--accent);
       margin-bottom: 24px;
       box-shadow: 0 8px 24px -8px rgba(0,0,0,0.1);
     }
     .step-title {
       font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
       margin-bottom: 10px;
       color: var(--light-text);
     }
@@ -1103,12 +1104,12 @@
     .footer .logo { color: var(--text); margin-bottom: 18px; }
     .footer-tag {
       font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: -0.02em;
+      font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
       color: var(--text);
       max-width: 380px;
-      line-height: 1.2;
+      line-height: 1.3;
     }
     .footer-col h4 {
       font-family: var(--font-mono);
@@ -1844,6 +1845,10 @@
 
     // 5) Lucide icons
     if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>
+indow.lucide) lucide.createIcons();
   </script>
 </body>
 </html>
