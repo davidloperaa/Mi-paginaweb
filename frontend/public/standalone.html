@@ -27,6 +27,9 @@
   <!-- Calendly widget CSS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 
+  <!-- html2pdf for brochure download (lazy loaded) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
   <style>
     /* ============================================
        DESIGN TOKENS
@@ -1689,6 +1692,332 @@
     .lm-status.show { display: inline-block; }
     .lm-status.success { background: rgba(0, 212, 100, 0.12); color: #00D472; border: 1px solid rgba(0, 212, 100, 0.3); }
     .lm-status.error { background: rgba(255, 80, 80, 0.12); color: #FF6060; border: 1px solid rgba(255, 80, 80, 0.3); }
+
+    /* ============================================
+       BROCHURE TEMPLATE (offscreen, A4 PDF)
+       ============================================ */
+    .brochure-template {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      width: 794px; /* A4 width at 96dpi */
+      background: #FFFFFF;
+      color: #0A0A0A;
+      font-family: 'Geist', system-ui, sans-serif;
+      padding: 0;
+    }
+    .brochure-template * { box-sizing: border-box; }
+    .br-page {
+      width: 794px;
+      min-height: 1110px; /* A4 height ~1123 minus tiny safe gap */
+      padding: 56px 56px;
+      position: relative;
+      page-break-after: always;
+      background: #FFFFFF;
+    }
+    .br-page:last-child { page-break-after: auto; }
+
+    .br-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #E6E6EA;
+      margin-bottom: 36px;
+    }
+    .br-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: #0A0A0A;
+    }
+    .br-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #1E90FF 0%, #00D4FF 100%);
+      display: grid;
+      place-items: center;
+      color: #061425;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: -0.04em;
+    }
+    .br-header-meta {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    .br-eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1E90FF;
+      margin-bottom: 14px;
+    }
+    .br-h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+      color: #0A0A0A;
+      margin-bottom: 18px;
+    }
+    .br-h1 span {
+      color: #1E90FF;
+    }
+    .br-lead {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #444;
+      max-width: 460px;
+      margin-bottom: 28px;
+    }
+
+    .br-cover-grid {
+      display: flex;
+      gap: 32px;
+      align-items: stretch;
+      margin-bottom: 32px;
+    }
+    .br-cover-text { flex: 1.2; }
+    .br-cover-photo {
+      flex: 0.8;
+      aspect-ratio: 4/5;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #F4F4F5;
+      max-width: 280px;
+    }
+    .br-cover-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .br-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .br-stat {
+      background: #F4F4F5;
+      border-radius: 12px;
+      padding: 18px 16px;
+    }
+    .br-stat .num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0A0A0A;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .br-stat .lbl {
+      font-size: 11px;
+      color: #666;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .br-contact-bar {
+      background: #0A0A0A;
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .br-contact-item .lbl {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    .br-contact-item .val {
+      font-size: 13px;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      word-break: break-word;
+    }
+
+    .br-section-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #0A0A0A;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    .br-section-title span { color: #1E90FF; }
+
+    .br-services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .br-service {
+      padding: 14px 16px;
+      background: #F8F8FA;
+      border: 1px solid #ECECEF;
+      border-radius: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .br-service .num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: #1E90FF;
+      font-weight: 700;
+      flex-shrink: 0;
+      width: 22px;
+    }
+    .br-service .body { flex: 1; }
+    .br-service .name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: #0A0A0A;
+      margin-bottom: 2px;
+    }
+    .br-service .desc {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    .br-cases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .br-case {
+      padding: 22px 18px;
+      background: linear-gradient(180deg, #0A1422 0%, #0A0A0A 100%);
+      color: #fff;
+      border-radius: 12px;
+    }
+    .br-case .company {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .br-case .figure {
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.045em;
+      background: linear-gradient(135deg, #00D4FF 0%, #1E90FF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .br-case .desc {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #DCDCDC;
+    }
+
+    .br-quote {
+      background: #F4F4F5;
+      border-left: 3px solid #1E90FF;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .br-quote p {
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.55;
+      color: #2A2A2A;
+      margin-bottom: 8px;
+    }
+    .br-quote .who {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    .br-footer {
+      position: absolute;
+      bottom: 36px;
+      left: 56px;
+      right: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid #E6E6EA;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .br-cta-strip {
+      background: linear-gradient(135deg, #061425 0%, #0A1F38 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 18px;
+    }
+    .br-cta-strip h3 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .br-cta-strip h3 span {
+      background: linear-gradient(135deg, #00D4FF 0%, #1E90FF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .br-cta-strip p {
+      font-size: 13px;
+      color: #BBB;
+      margin-bottom: 14px;
+    }
+    .br-cta-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .br-cta-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 11px;
+      letter-spacing: -0.005em;
+      color: #fff;
+    }
+
+    /* Brochure button loading state */
+    #brochure-btn[disabled] { opacity: 0.6; cursor: wait; }
   </style>
 </head>
 <body>
@@ -1797,25 +2126,27 @@
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/97a12tku_images.png" alt="Almacenes Flamingo" loading="lazy" /></div>
           <div class="logo-item text-logo">Eficacia&nbsp;S.A.</div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/48qltaro_d4d7d54b-5776-4e06-bfb0-7ca36e6ac5d6.png" alt="Agaval S.A." loading="lazy" /></div>
-          <div class="logo-item text-logo">Grupo&nbsp;Pharmetique</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/qmvcvod0_PharmetiqueLogo-01.png" alt="Pharmetique Labs" loading="lazy" /></div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/dkjcaecg_licamo.jpeg" alt="Licamo · Liga Caucana de Motociclismo" loading="lazy" /></div>
-          <div class="logo-item text-logo">Cámara&nbsp;de&nbsp;Comercio&nbsp;Cali</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/qmhzfh5g_images%20%282%29.jpeg" alt="Cámara de Comercio de Cali" loading="lazy" /></div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/ldjkdbak_logo_web.png" alt="Coopemsura" loading="lazy" /></div>
           <div class="logo-item text-logo">UAO</div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/l71l5wd7_confecciones_y_promociones_s_a_s_logo.jpeg" alt="C&amp;P · Confecciones y Promociones SAS" loading="lazy" /></div>
           <div class="logo-item text-logo">Proservis</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/hssyyokt_logo-la-sante-22%20%281%29.png" alt="La Santé · Salud y vida para más personas" loading="lazy" /></div>
 
           <!-- Set 2 (duplicate for seamless loop) -->
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/97a12tku_images.png" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="logo-item text-logo" aria-hidden="true">Eficacia&nbsp;S.A.</div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/48qltaro_d4d7d54b-5776-4e06-bfb0-7ca36e6ac5d6.png" alt="" aria-hidden="true" loading="lazy" /></div>
-          <div class="logo-item text-logo" aria-hidden="true">Grupo&nbsp;Pharmetique</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/qmvcvod0_PharmetiqueLogo-01.png" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/dkjcaecg_licamo.jpeg" alt="" aria-hidden="true" loading="lazy" /></div>
-          <div class="logo-item text-logo" aria-hidden="true">Cámara&nbsp;de&nbsp;Comercio&nbsp;Cali</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/qmhzfh5g_images%20%282%29.jpeg" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/ldjkdbak_logo_web.png" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="logo-item text-logo" aria-hidden="true">UAO</div>
           <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/l71l5wd7_confecciones_y_promociones_s_a_s_logo.jpeg" alt="" aria-hidden="true" loading="lazy" /></div>
           <div class="logo-item text-logo" aria-hidden="true">Proservis</div>
+          <div class="logo-item"><img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/hssyyokt_logo-la-sante-22%20%281%29.png" alt="" aria-hidden="true" loading="lazy" /></div>
         </div>
       </div>
     </div>
@@ -1952,10 +2283,16 @@
             <span class="credential">Esp. Gerencia Mercadeo</span>
             <span class="credential">Maestría Dir. Comercial</span>
           </div>
-          <a href="#" class="btn btn-light-ghost" data-testid="cta-cv">
-            Descargar hoja de vida
-            <i data-lucide="download" width="16" height="16"></i>
-          </a>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/pgfmnfvb_HV%20David%20Lopera%20Arroyave%20MCO%20F.pdf" target="_blank" rel="noopener" class="btn btn-light-ghost" data-testid="cta-cv">
+              Descargar hoja de vida
+              <i data-lucide="download" width="16" height="16"></i>
+            </a>
+            <button type="button" id="brochure-btn" class="btn btn-light-ghost" data-testid="cta-brochure">
+              <span id="brochure-btn-label">Descargar Brochure (PDF)</span>
+              <i data-lucide="file-down" width="16" height="16"></i>
+            </button>
+          </div>
           <div class="about-companies">
             <span>Eficacia S.A.</span>
             <span>·</span>
@@ -2178,13 +2515,13 @@
       <div class="lm-grid">
         <div class="lm-content reveal">
           <span class="lm-pill"><span class="dot"></span>Recurso gratuito · PDF</span>
-          <h2>Guía: <span>Marketing Digital con IA</span> — 10 jugadas que están vendiendo en 2025.</h2>
+          <h2>Guía: <span>Marketing Digital con IA</span> — 10 jugadas que están vendiendo en 2026.</h2>
           <p>
             La misma guía que aplico con clientes en Colombia y LATAM. Tácticas de Meta Ads, Google Ads,
             automatización con IA y embudos de conversión que mueven la aguja. Sin spam — directo al PDF en tu correo.
           </p>
           <ul class="lm-bullets">
-            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Meta Ads 2025 · Advantage+ y CBO que sí escalan</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Meta Ads 2026 · Advantage+ y CBO que sí escalan</li>
             <li><i data-lucide="check-circle-2" width="18" height="18"></i> Cómo usar IA generativa para crear creativos en minutos</li>
             <li><i data-lucide="check-circle-2" width="18" height="18"></i> Chatbots IA en WhatsApp · convierten 3× más que email</li>
             <li><i data-lucide="check-circle-2" width="18" height="18"></i> Embudo Landing → WhatsApp → CRM automatizado</li>
@@ -2193,7 +2530,7 @@
         </div>
 
         <form class="lm-form-card lm-form reveal reveal-delay-1" id="lm-form" action="https://formspree.io/f/mqenlpwa" method="POST" data-testid="leadmagnet-form">
-          <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía Marketing Digital + IA 2025" />
+          <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía Marketing Digital + IA 2026" />
           <input type="hidden" name="origen" value="Lead Magnet · Marketing Digital + IA" />
           <h3>Descarga la guía gratis</h3>
           <p class="lm-sub">Te llega en menos de 1 minuto a tu inbox.</p>
@@ -2366,7 +2703,7 @@
         <article class="resource-card reveal" data-testid="resource-1">
           <div class="resource-thumb"><span class="resource-thumb-tag">Marketing · IA</span></div>
           <div class="resource-body">
-            <h3>10 jugadas de Marketing Digital con IA que están vendiendo en 2025</h3>
+            <h3>10 jugadas de Marketing Digital con IA que están vendiendo en 2026</h3>
             <span class="resource-meta">Guía · 12 min</span>
           </div>
         </article>
@@ -2380,7 +2717,7 @@
         <article class="resource-card reveal reveal-delay-2" data-testid="resource-3">
           <div class="resource-thumb"><span class="resource-thumb-tag">Performance</span></div>
           <div class="resource-body">
-            <h3>Meta Ads en 2025: lo que funciona y lo que no</h3>
+            <h3>Meta Ads en 2026: lo que funciona y lo que no</h3>
             <span class="resource-meta">Análisis · 10 min</span>
           </div>
         </article>
@@ -2420,7 +2757,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="copy">© 2025 David Lopera · Cali, Colombia</span>
+        <span class="copy">© 2026 David Lopera · Cali, Colombia</span>
         <div class="socials">
           <a href="https://linkedin.com/in/davidloperaCX" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin" width="16" height="16"></i></a>
           <a href="https://wa.me/573103844519" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle" width="16" height="16"></i></a>
@@ -2429,6 +2766,136 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============================================ -->
+  <!-- BROCHURE TEMPLATE (offscreen, render to PDF) -->
+  <!-- ============================================ -->
+  <div class="brochure-template" id="brochure-template" aria-hidden="true">
+
+    <!-- PAGE 1: COVER + STATS -->
+    <div class="br-page">
+      <div class="br-header">
+        <div class="br-logo">
+          <span class="br-logo-mark">DL</span>
+          <span>David Lopera</span>
+        </div>
+        <div class="br-header-meta">Brochure 2026 · Cali, Colombia</div>
+      </div>
+
+      <div class="br-cover-grid">
+        <div class="br-cover-text">
+          <div class="br-eyebrow">Experiencia del Cliente · Marketing Digital · IA</div>
+          <h1 class="br-h1">14 años convirtiendo clientes en <span>revenue</span>.</h1>
+          <p class="br-lead">Consultor en Experiencia del Cliente, Marketing Digital e IA. Resultados medibles para empresas que quieren crecer en Colombia y LATAM.</p>
+          <div style="font-family:'Geist Mono', monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#888;">
+            Esposo de Diana · Papá de Federico y Samantha
+          </div>
+        </div>
+        <div class="br-cover-photo">
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" alt="David Lopera" crossorigin="anonymous" />
+        </div>
+      </div>
+
+      <div class="br-stats-row">
+        <div class="br-stat"><div class="num">$30.000M+</div><div class="lbl">COP en revenue protegido</div></div>
+        <div class="br-stat"><div class="num">60%</div><div class="lbl">resolución autónoma con IA</div></div>
+        <div class="br-stat"><div class="num">NPS +16</div><div class="lbl">incremento LATAM</div></div>
+        <div class="br-stat"><div class="num">14+</div><div class="lbl">años de experiencia</div></div>
+      </div>
+
+      <h2 class="br-section-title">Sobre <span>mí</span></h2>
+      <p style="font-size:13px; line-height:1.65; color:#444; margin-bottom:18px;">
+        Consultor con más de 14 años liderando estrategias de Experiencia del Cliente, Marketing Digital, IA aplicada y CRM
+        en Colombia y LATAM. He trabajado con empresas como Almacenes Flamingo, Eficacia S.A., Pharmetique Labs,
+        Cámara de Comercio de Cali, La Santé, Coopemsura, Agaval y decenas de marcas en crecimiento.
+        Combino visión estratégica con ejecución técnica.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:32px;">
+        <span style="font-family:'Geist Mono',monospace; font-size:10px; padding:6px 12px; background:#F4F4F5; border-radius:999px; color:#444;">Ing. Administrativa</span>
+        <span style="font-family:'Geist Mono',monospace; font-size:10px; padding:6px 12px; background:#F4F4F5; border-radius:999px; color:#444;">Esp. Gerencia Mercadeo</span>
+        <span style="font-family:'Geist Mono',monospace; font-size:10px; padding:6px 12px; background:#F4F4F5; border-radius:999px; color:#444;">Maestría Dir. Comercial</span>
+        <span style="font-family:'Geist Mono',monospace; font-size:10px; padding:6px 12px; background:#F4F4F5; border-radius:999px; color:#444;">Docente universitario</span>
+      </div>
+
+      <div class="br-contact-bar">
+        <div class="br-contact-item"><div class="lbl">WhatsApp</div><div class="val">+57 310 384 4519</div></div>
+        <div class="br-contact-item"><div class="lbl">Email</div><div class="val">davidloperacx@gmail.com</div></div>
+        <div class="br-contact-item"><div class="lbl">LinkedIn</div><div class="val">/in/davidloperaCX</div></div>
+        <div class="br-contact-item"><div class="lbl">Calendly</div><div class="val">calendly.com/davidloperacx</div></div>
+      </div>
+
+      <div class="br-footer">
+        <span>davidloperacx@gmail.com</span>
+        <span>Página 1 / 2</span>
+      </div>
+    </div>
+
+    <!-- PAGE 2: SERVICES + CASES + CTA -->
+    <div class="br-page">
+      <div class="br-header">
+        <div class="br-logo">
+          <span class="br-logo-mark">DL</span>
+          <span>David Lopera</span>
+        </div>
+        <div class="br-header-meta">Servicios · Resultados · Contacto</div>
+      </div>
+
+      <h2 class="br-section-title">Servicios · <span>12 frentes</span></h2>
+      <div class="br-services">
+        <div class="br-service"><span class="num">01</span><div class="body"><div class="name">Páginas Web Empresariales</div><div class="desc">Diseño profesional, UX/UI, CMS y e-commerce.</div></div></div>
+        <div class="br-service"><span class="num">02</span><div class="body"><div class="name">Marketing Digital 360°</div><div class="desc">Meta Ads, Google Ads, TikTok, YouTube.</div></div></div>
+        <div class="br-service"><span class="num">03</span><div class="body"><div class="name">Landing Pages</div><div class="desc">Alta conversión: copy, diseño y A/B testing.</div></div></div>
+        <div class="br-service"><span class="num">04</span><div class="body"><div class="name">Campañas de Performance</div><div class="desc">CBO/ABO, funnels y optimización CPA/ROAS.</div></div></div>
+        <div class="br-service"><span class="num">05</span><div class="body"><div class="name">Chatbots &amp; Voicebots IA</div><div class="desc">Asistentes omnicanal: WhatsApp, web, Genesys.</div></div></div>
+        <div class="br-service"><span class="num">06</span><div class="body"><div class="name">Automatización IA &amp; N8N</div><div class="desc">Flujos automáticos, integraciones API y RPA.</div></div></div>
+        <div class="br-service"><span class="num">07</span><div class="body"><div class="name">Estrategia Comercial</div><div class="desc">Modelos de desarrollo, segmentación y growth.</div></div></div>
+        <div class="br-service"><span class="num">08</span><div class="body"><div class="name">Consultoría Experiencia del Cliente</div><div class="desc">Diagnóstico, journey maps, NPS y retención.</div></div></div>
+        <div class="br-service"><span class="num">09</span><div class="body"><div class="name">Apps SaaS a Medida</div><div class="desc">MVPs B2B/B2C: producto y arquitectura.</div></div></div>
+        <div class="br-service"><span class="num">10</span><div class="body"><div class="name">Dashboards &amp; Analítica</div><div class="desc">Power BI, Tableau, dashboards HTML.</div></div></div>
+        <div class="br-service"><span class="num">11</span><div class="body"><div class="name">CRM &amp; Automatización</div><div class="desc">Salesforce, Zoho, HubSpot. Implementación.</div></div></div>
+        <div class="br-service"><span class="num">12</span><div class="body"><div class="name">Formación Corporativa</div><div class="desc">Talleres en Experiencia, IA y Marketing.</div></div></div>
+      </div>
+
+      <h2 class="br-section-title">Resultados <span>reales</span></h2>
+      <div class="br-cases">
+        <div class="br-case">
+          <div class="company">CC de Cali</div>
+          <div class="figure">60%</div>
+          <div class="desc">Resolución autónoma con IA y RPA. -30% en costos operativos.</div>
+        </div>
+        <div class="br-case">
+          <div class="company">Pharmetique Labs · LATAM</div>
+          <div class="figure">NPS +16</div>
+          <div class="desc">Incremento NPS en 5 países. Resolución -38%.</div>
+        </div>
+        <div class="br-case">
+          <div class="company">Almacenes Flamingo</div>
+          <div class="figure">$4.600M</div>
+          <div class="desc">COP generados en retención y recompra.</div>
+        </div>
+      </div>
+
+      <div class="br-quote">
+        <p>"David nos ayudó a estructurar nuestras campañas de Meta y Google desde cero. En 4 meses bajamos el CPA un 38% y triplicamos el ROAS."</p>
+        <span class="who">Director de Marketing · Sector Retail · Cali</span>
+      </div>
+
+      <div class="br-cta-strip">
+        <h3>Hablemos de tu <span>negocio</span>.</h3>
+        <p>30 minutos · Sin compromiso · Con claridad.</p>
+        <div class="br-cta-pills">
+          <span class="br-cta-pill">📅 calendly.com/davidloperacx</span>
+          <span class="br-cta-pill">💬 WhatsApp +57 310 384 4519</span>
+          <span class="br-cta-pill">✉ davidloperacx@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="br-footer">
+        <span>© 2026 David Lopera · Cali, Colombia</span>
+        <span>Página 2 / 2</span>
+      </div>
+    </div>
+  </div>
 
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/573103844519?text=Hola%20David%2C%20vengo%20de%20tu%20landing%20y%20quiero%20conversar." target="_blank" rel="noopener" class="wa-fab" aria-label="Hablar por WhatsApp" data-testid="wa-fab">
@@ -2558,6 +3025,62 @@
 
     // 5) Lucide icons
     if (window.lucide) lucide.createIcons();
+
+    // 6) Brochure PDF download
+    const brochureBtn = document.getElementById('brochure-btn');
+    const brochureLabel = document.getElementById('brochure-btn-label');
+    const brochureTpl = document.getElementById('brochure-template');
+    if (brochureBtn) {
+      brochureBtn.addEventListener('click', async () => {
+        // Wait for html2pdf to load if not yet ready
+        if (!window.html2pdf) {
+          brochureLabel.textContent = 'Cargando...';
+          await new Promise((resolve) => {
+            const check = setInterval(() => {
+              if (window.html2pdf) { clearInterval(check); resolve(); }
+            }, 100);
+            setTimeout(() => { clearInterval(check); resolve(); }, 8000);
+          });
+        }
+        if (!window.html2pdf) {
+          brochureLabel.textContent = 'Error · reintentar';
+          setTimeout(() => { brochureLabel.textContent = 'Descargar Brochure (PDF)'; }, 2400);
+          return;
+        }
+
+        brochureBtn.disabled = true;
+        brochureLabel.textContent = 'Generando PDF...';
+
+        // Make template visible for rendering (still offscreen via left:-9999px)
+        brochureTpl.style.display = 'block';
+
+        const opt = {
+          margin: 0,
+          filename: 'Brochure-David-Lopera-2026.pdf',
+          image: { type: 'jpeg', quality: 0.95 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            allowTaint: false,
+            backgroundColor: '#FFFFFF',
+            logging: false
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
+          pagebreak: { mode: ['css', 'legacy'] }
+        };
+
+        try {
+          await window.html2pdf().set(opt).from(brochureTpl).save();
+          brochureLabel.textContent = '✓ Descargado';
+        } catch (err) {
+          console.error('Brochure error:', err);
+          brochureLabel.textContent = '⚠ Error · reintenta';
+        } finally {
+          brochureBtn.disabled = false;
+          setTimeout(() => { brochureLabel.textContent = 'Descargar Brochure (PDF)'; }, 2400);
+        }
+      });
+    }
   </script>
 </body>
 </html>
