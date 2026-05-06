@@ -1170,32 +1170,349 @@
     .reveal-delay-3 { transition-delay: 270ms; }
 
     /* ============================================
-       DOWNLOAD FAB
+       DOWNLOAD FAB (bottom-left, low priority)
        ============================================ */
     .download-fab {
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      left: 24px;
       z-index: 90;
-      background: var(--surface);
+      background: rgba(17, 17, 17, 0.85);
       border: 1px solid var(--border-strong);
       border-radius: 999px;
-      padding: 12px 18px;
+      padding: 10px 16px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: var(--text);
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-2);
       backdrop-filter: blur(12px);
       transition: all 260ms;
       box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
     }
     .download-fab:hover {
       border-color: var(--accent);
-      background: var(--accent);
+      color: var(--text);
       transform: translateY(-2px);
     }
     @media (max-width: 600px) { .download-fab { display: none; } }
+
+    /* ============================================
+       WHATSAPP FAB (bottom-right, high priority)
+       ============================================ */
+    .wa-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 95;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      transition: transform 260ms var(--ease), box-shadow 260ms var(--ease);
+      box-shadow: 0 12px 28px -8px rgba(37, 211, 102, 0.55), 0 4px 12px -4px rgba(0,0,0,0.4);
+    }
+    .wa-fab::before,
+    .wa-fab::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.5);
+      animation: wa-pulse 2.4s infinite;
+      pointer-events: none;
+    }
+    .wa-fab::after { animation-delay: 1.2s; }
+    @keyframes wa-pulse {
+      0%   { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+    .wa-fab:hover {
+      transform: scale(1.06);
+      box-shadow: 0 16px 36px -8px rgba(37, 211, 102, 0.7), 0 6px 14px -4px rgba(0,0,0,0.5);
+    }
+    .wa-fab svg { position: relative; z-index: 1; }
+    .wa-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%) translateX(8px);
+      background: #050505;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: -0.005em;
+      padding: 8px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 260ms var(--ease);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .wa-fab:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+    @media (max-width: 600px) {
+      .wa-fab { width: 54px; height: 54px; bottom: 18px; right: 18px; }
+      .wa-tooltip { display: none; }
+    }
+
+    /* ============================================
+       MI FAMILIA (warm cream)
+       ============================================ */
+    .family {
+      background: #F8F3E9;
+      color: #1A1208;
+      position: relative;
+      overflow: hidden;
+    }
+    .family::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212, 175, 95, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 90%, rgba(180, 130, 60, 0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .family .container { position: relative; z-index: 1; }
+    .family-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .family-grid { grid-template-columns: 1fr; gap: 48px; } }
+    .family-photo {
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 50px 90px -30px rgba(120, 80, 30, 0.25), 0 0 0 1px rgba(120, 80, 30, 0.06);
+      position: relative;
+    }
+    .family-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms var(--ease);
+    }
+    .family-photo:hover img { transform: scale(1.02); }
+    .family-photo .corner-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #4A2D0E;
+      background: rgba(255, 250, 240, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(120, 80, 30, 0.12);
+    }
+    .family-eyebrow {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: #B6822E;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .family-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: #B6822E;
+    }
+    .family-content h2 {
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      letter-spacing: -0.04em;
+      color: #1A1208;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .family-content h2 em {
+      font-style: normal;
+      color: #B6822E;
+    }
+    .family-content p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3A2A1A;
+      margin-bottom: 20px;
+    }
+    .family-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(120, 80, 30, 0.15);
+    }
+    .family-chip {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.6);
+      color: #4A2D0E;
+      border: 1px solid rgba(120, 80, 30, 0.18);
+    }
+    .family-chip strong {
+      color: #B6822E;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       LEAD MAGNET (vibrant accent banner)
+       ============================================ */
+    .leadmagnet {
+      background:
+        linear-gradient(135deg, #061425 0%, #0A1F38 50%, #061425 100%);
+      position: relative;
+      overflow: hidden;
+      padding-block: 100px;
+    }
+    .leadmagnet::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(30, 144, 255, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 15% 80%, rgba(0, 212, 255, 0.16) 0%, transparent 60%);
+    }
+    .leadmagnet::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
+      pointer-events: none;
+    }
+    .leadmagnet .container {
+      position: relative;
+      z-index: 1;
+    }
+    .lm-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .lm-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .lm-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 20px;
+    }
+    .lm-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 10px var(--accent-2);
+    }
+    .lm-content h2 {
+      font-size: clamp(2rem, 4.4vw, 3.2rem);
+      letter-spacing: -0.04em;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .lm-content h2 span {
+      background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lm-content > p {
+      color: var(--text-2);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+    .lm-bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .lm-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text);
+      font-size: 14.5px;
+    }
+    .lm-bullets li svg { flex-shrink: 0; color: var(--accent-2); margin-top: 3px; }
+    .lm-form-card {
+      background: rgba(8, 12, 20, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(30, 144, 255, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5), 0 0 0 1px rgba(0, 212, 255, 0.08);
+    }
+    @media (max-width: 600px) { .lm-form-card { padding: 28px 24px; } }
+    .lm-form-card h3 {
+      font-size: 1.3rem;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .lm-form-card .lm-sub {
+      color: var(--text-2);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .lm-form .field {
+      margin-bottom: 14px;
+    }
+    .lm-disclaimer {
+      font-size: 11px;
+      color: var(--text-2);
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+    .lm-status {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-top: 12px;
+      display: none;
+    }
+    .lm-status.show { display: inline-block; }
+    .lm-status.success { background: rgba(0, 212, 100, 0.12); color: #00D472; border: 1px solid rgba(0, 212, 100, 0.3); }
+    .lm-status.error { background: rgba(255, 80, 80, 0.12); color: #FF6060; border: 1px solid rgba(255, 80, 80, 0.3); }
   </style>
 </head>
 <body>
@@ -1457,6 +1774,40 @@
   </section>
 
   <!-- ============================================ -->
+  <!-- SECCIÓN 5.5 — MI FAMILIA (humanización) -->
+  <!-- ============================================ -->
+  <section class="family" id="familia" data-testid="familia">
+    <div class="container">
+      <div class="family-grid">
+        <div class="family-photo reveal">
+          <span class="corner-tag">2025 · Familia Lopera</span>
+          <!-- FOTO 4: David Lopera con su familia — Diana, Federico y Samantha -->
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/ddunzuuo_2.png" alt="David Lopera con su esposa Diana y sus hijos Federico y Samantha" loading="lazy" />
+        </div>
+        <div class="family-content reveal reveal-delay-1">
+          <span class="family-eyebrow">Detrás del consultor</span>
+          <h2>Mi familia. Mi <em>por qué</em>.</h2>
+          <p>
+            Antes de hablar de revenue, NPS o ROAS — soy <strong>esposo de Diana</strong>, mi compañera y mejor consejera;
+            y <strong>papá de Federico y Samantha</strong>, mis dos motores.
+          </p>
+          <p>
+            Esa es la razón por la que entiendo que detrás de cada cliente hay una persona con familia,
+            sueños y tiempo limitado. Por eso trabajo con tus clientes como me gustaría que trataran a los míos:
+            con respeto, claridad y resultados que se puedan llevar a casa.
+          </p>
+          <div class="family-meta">
+            <span class="family-chip">Esposo de <strong>Diana</strong></span>
+            <span class="family-chip">Papá de <strong>Federico</strong></span>
+            <span class="family-chip">Papá de <strong>Samantha</strong></span>
+            <span class="family-chip">Cali, Colombia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
   <!-- SECCIÓN 6 — RESULTADOS / CASOS -->
   <!-- ============================================ -->
   <section class="cases" id="resultados" data-testid="resultados">
@@ -1511,8 +1862,8 @@
 
         <div class="cases-photo reveal reveal-delay-3">
           <!-- FOTO 3: David Lopera — sección casos, formato landscape. Reemplazar src para sustituir -->
-          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/p9yhpnrv_Gemini_Generated_Image_eemle1eemle1eeml.png" alt="David Lopera presentando en CX Day Colombia" loading="lazy" />
-          <span class="caption">Keynote · CX Day Colombia</span>
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/bds3jvlb_1764095547097.jpeg" alt="David Lopera en Panel Semana de la Experiencia · Cámara de Comercio de Cali" loading="lazy" />
+          <span class="caption">Panel · Semana de la Experiencia · CC Cali</span>
         </div>
       </div>
     </div>
@@ -1547,6 +1898,63 @@
           <h3 class="step-title">Medición</h3>
           <p class="step-desc">Reportes, KPIs y ajuste continuo.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 7.5 — LEAD MAGNET (captura email) -->
+  <!-- ============================================ -->
+  <section class="leadmagnet" id="recurso-gratis" data-testid="leadmagnet">
+    <div class="container">
+      <div class="lm-grid">
+        <div class="lm-content reveal">
+          <span class="lm-pill"><span class="dot"></span>Recurso gratuito · PDF</span>
+          <h2>Guía: <span>5 KPIs de CX</span> que todo CEO debería monitorear.</h2>
+          <p>
+            La misma guía que aplico con clientes en 5 países LATAM. Métricas accionables, fórmulas listas
+            y benchmarks reales. Sin spam — directo al PDF en tu correo.
+          </p>
+          <ul class="lm-bullets">
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> NPS transaccional vs. relacional · cuándo usar cada uno</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> CES (Customer Effort Score) y por qué predice churn</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> CSAT por touchpoint · cómo aislar el problema</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> First Contact Resolution con benchmarks LATAM</li>
+            <li><i data-lucide="check-circle-2" width="18" height="18"></i> Customer Lifetime Value · fórmula simplificada</li>
+          </ul>
+        </div>
+
+        <form class="lm-form-card lm-form reveal reveal-delay-1" id="lm-form" action="https://formspree.io/f/mqenlpwa" method="POST" data-testid="leadmagnet-form">
+          <input type="hidden" name="_subject" value="📥 Lead Magnet: Guía 5 KPIs de CX" />
+          <input type="hidden" name="origen" value="Lead Magnet · 5 KPIs CX" />
+          <h3>Descarga la guía gratis</h3>
+          <p class="lm-sub">Te llega en menos de 1 minuto a tu inbox.</p>
+          <div class="field">
+            <label for="lm-name">Nombre *</label>
+            <input id="lm-name" name="nombre" type="text" required placeholder="Tu nombre" data-testid="lm-nombre" />
+          </div>
+          <div class="field">
+            <label for="lm-email">Email corporativo *</label>
+            <input id="lm-email" name="email" type="email" required placeholder="tu@empresa.com" data-testid="lm-email" />
+          </div>
+          <div class="field">
+            <label for="lm-rol">Rol *</label>
+            <select id="lm-rol" name="rol" required data-testid="lm-rol">
+              <option value="">Selecciona</option>
+              <option>CEO / Founder</option>
+              <option>Director de CX</option>
+              <option>Director de Marketing</option>
+              <option>Gerente de CRM</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large" style="width:100%; justify-content:center; margin-top:8px;" data-testid="lm-submit">
+            Descargar guía gratis
+            <i data-lucide="download" width="16" height="16"></i>
+          </button>
+          <span id="lm-status" class="lm-status"></span>
+          <p class="lm-disclaimer">Te enviaré el PDF al correo. Ocasionalmente te compartiré contenido útil sobre CX. Cero spam — puedes salir cuando quieras.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -1753,6 +2161,14 @@
     </div>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/573103844519?text=Hola%20David%2C%20vengo%20de%20tu%20landing%20y%20quiero%20conversar." target="_blank" rel="noopener" class="wa-fab" aria-label="Hablar por WhatsApp" data-testid="wa-fab">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    <span class="wa-tooltip">Chatea conmigo · Respondo en minutos</span>
+  </a>
+
   <!-- Download FAB -->
   <a href="/standalone.html" download="david-lopera-landing.html" class="download-fab" data-testid="download-fab" title="Descarga el archivo HTML standalone">
     <i data-lucide="download" width="14" height="14"></i>
@@ -1817,7 +2233,7 @@
     }, { threshold: 0.4 });
     counters.forEach((c) => counterIO.observe(c));
 
-    // 4) Form submit (FormSpree)
+    // 4) Form submit (FormSpree) — main quote form
     const form = document.getElementById('quote-form');
     const status = document.getElementById('form-status');
     form.addEventListener('submit', async (e) => {
@@ -1842,6 +2258,34 @@
         status.classList.add('show', 'error');
       }
     });
+
+    // 4.5) Lead Magnet form submit
+    const lmForm = document.getElementById('lm-form');
+    const lmStatus = document.getElementById('lm-status');
+    if (lmForm) {
+      lmForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        lmStatus.classList.remove('show', 'success', 'error');
+        const data = new FormData(lmForm);
+        try {
+          const res = await fetch(lmForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { Accept: 'application/json' }
+          });
+          if (res.ok) {
+            lmStatus.textContent = '✓ Revisa tu correo · te enviamos la guía';
+            lmStatus.classList.add('show', 'success');
+            lmForm.reset();
+          } else {
+            throw new Error('FormSpree responded ' + res.status);
+          }
+        } catch (err) {
+          lmStatus.textContent = '⚠ Error · intenta de nuevo';
+          lmStatus.classList.add('show', 'error');
+        }
+      });
+    }
 
     // 5) Lucide icons
     if (window.lucide) lucide.createIcons();
