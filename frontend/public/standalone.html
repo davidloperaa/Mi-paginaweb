@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Lopera · CX & Growth — Experiencia que Mueve Revenue</title>
+  <meta name="description" content="Consultor senior con 14+ años en CX, CRM y Marketing Digital. Resultados medibles para empresas que quieren crecer en Colombia y LATAM." />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="David Lopera · CX & Growth — Experiencia que Mueve Revenue" />
+  <meta property="og:description" content="Consultor en CX, CRM y Marketing Digital. 14 años convirtiendo experiencias en revenue." />
+  <meta property="og:image" content="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+
+  <!-- Favicon emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23080808%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2260%22 font-family=%22Arial Black%22 fill=%22%231E90FF%22>DL</text></svg>" />
+
+  <!-- Google Fonts: Syne (display) + DM Sans (body) + JetBrains Mono (mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Calendly widget CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface-2: #161616;
+      --text: #F5F5F5;
+      --text-2: #888888;
+      --accent: #1E90FF;
+      --accent-2: #00D4FF;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --light-bg: #FFFFFF;
+      --light-text: #0A0A0A;
+      --light-text-2: #555555;
+      --gray-bg: #F4F4F5;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 24px;
+
+      --container: 1280px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ============================================
+       RESET
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+    .mono { font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.01em; }
+
+    /* ============================================
+       LAYOUT UTILS
+       ============================================ */
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: 24px; }
+    section { position: relative; padding-block: 120px; }
+    @media (max-width: 768px) {
+      section { padding-block: 80px; }
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .light .eyebrow { color: #0066CC; }
+    .light .eyebrow::before { background: #0066CC; }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 280ms var(--ease);
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 24px -8px rgba(30, 144, 255, 0.6), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+    .btn-primary:hover {
+      background: #0F7FE0;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(30, 144, 255, 0.7), 0 0 0 4px rgba(30, 144, 255, 0.15);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-light-ghost {
+      background: transparent;
+      color: #0A0A0A;
+      border: 1px solid rgba(0,0,0,0.18);
+    }
+    .btn-light-ghost:hover {
+      background: #0A0A0A;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-large { padding: 20px 36px; font-size: 16px; }
+
+    /* ============================================
+       NAVBAR
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background-color 320ms var(--ease), backdrop-filter 320ms var(--ease), border-color 320ms var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(8, 8, 8, 0.78);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      max-width: var(--container);
+      margin-inline: auto;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: #061425;
+      font-size: 15px;
+      letter-spacing: -0.04em;
+      box-shadow: 0 4px 14px -4px rgba(30, 144, 255, 0.5);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: color 200ms;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 280ms var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { padding: 12px 22px; font-size: 14px; }
+    .menu-btn { display: none; padding: 8px; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; }
+      .nav-cta { display: none; }
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      min-height: 100vh;
+      padding-top: 120px;
+      padding-bottom: 60px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 40%, rgba(30, 100, 200, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0, 100, 180, 0.12) 0%, transparent 60%);
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 80%);
+      z-index: 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6.2vw, 5.6rem);
+      letter-spacing: -0.035em;
+      line-height: 1.0;
+    }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: clamp(1.95rem, 9vw, 2.6rem);
+        line-height: 1.05;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p.lead {
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      color: var(--text-2);
+      max-width: 540px;
+      margin-top: 24px;
+      line-height: 1.6;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 56px;
+      max-width: 540px;
+    }
+    .metric-badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: all 280ms var(--ease);
+    }
+    .metric-badge:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px var(--accent), 0 0 24px -4px rgba(30, 144, 255, 0.4);
+    }
+    .metric-badge .num {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      word-break: break-word;
+    }
+    .metric-badge .lbl {
+      font-size: 12px;
+      color: var(--text-2);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      max-width: 480px;
+      margin-left: auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(30, 144, 255, 0.15);
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(8,8,8,0.35) 100%);
+      pointer-events: none;
+    }
+    /* FOTO 1: David Lopera — hero, media pantalla derecha, formato portrait */
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.15) contrast(1.05) brightness(0.96);
+      transition: filter 600ms var(--ease), transform 800ms var(--ease);
+    }
+    .hero-visual:hover img { filter: none; transform: scale(1.02); }
+
+    .hero-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: rgba(8,8,8,0.7);
+      backdrop-filter: blur(8px);
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      z-index: 2;
+      white-space: nowrap;
+    }
+    .hero-tag .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      margin-right: 8px;
+      box-shadow: 0 0 12px var(--accent-2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ============================================
+       CREDIBILITY BAR (white)
+       ============================================ */
+    .credibility {
+      background: var(--light-bg);
+      color: var(--light-text);
+      padding-block: 100px;
+    }
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    @media (max-width: 768px) { .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; } }
+    .cred-stat .number {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      letter-spacing: -0.04em;
+      color: var(--light-text);
+      line-height: 1;
+    }
+    .cred-stat .number .accent {
+      color: var(--accent);
+    }
+    .cred-stat .label {
+      font-size: 13px;
+      color: var(--light-text-2);
+      margin-top: 10px;
+      max-width: 200px;
+      line-height: 1.45;
+    }
+    .cred-logos {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .cred-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: #0A0A0A;
+      letter-spacing: -0.02em;
+      opacity: 0.55;
+      transition: opacity 220ms;
+      flex: 1;
+      text-align: center;
+      min-width: 140px;
+    }
+    .cred-logo:hover { opacity: 1; }
+    .cred-logos-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light-text-2);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* ============================================
+       SERVICIOS (dark)
+       ============================================ */
+    .services-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+    .services h2 {
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      letter-spacing: -0.03em;
+      max-width: 720px;
+    }
+    .services-head p {
+      color: var(--text-2);
+      max-width: 380px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: all 320ms var(--ease);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 280ms;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      background: var(--surface-2);
+      box-shadow: 0 20px 40px -20px rgba(30, 144, 255, 0.25), 0 0 0 1px rgba(30, 144, 255, 0.3);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(30, 144, 255, 0.08);
+      border: 1px solid rgba(30, 144, 255, 0.18);
+      display: grid;
+      place-items: center;
+      color: var(--accent-2);
+      margin-bottom: 22px;
+      transition: all 320ms var(--ease);
+    }
+    .service-card:hover .service-icon {
+      background: rgba(30, 144, 255, 0.16);
+      transform: scale(1.05) rotate(-2deg);
+    }
+    .service-card h3 {
+      font-size: 1.15rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .service-card p {
+      color: var(--text-2);
+      font-size: 14.5px;
+      line-height: 1.55;
+      margin-bottom: 22px;
+    }
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.18);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .quote-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 220ms;
+    }
+    .quote-link:hover { color: var(--accent-2); gap: 10px; }
+
+    /* ============================================
+       SOBRE MÍ (white, 50/50)
+       ============================================ */
+    .about {
+      background: var(--light-bg);
+      color: var(--light-text);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-photo {
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 40px 80px -30px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    /* FOTO 2: David Lopera — sección "Sobre mí", formato cuadrado */
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+      pointer-events: none;
+    }
+
+    .about-content h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: var(--light-text);
+    }
+    .about-content p {
+      color: var(--light-text-2);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+      padding-top: 12px;
+    }
+    .credential {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #F4F4F5;
+      color: #2A2A2A;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .about-companies {
+      display: flex;
+      gap: 18px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .about-companies span {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: rgba(0,0,0,0.5);
+      letter-spacing: -0.01em;
+    }
+
+    /* ============================================
+       RESULTADOS / CASOS (dark)
+       ============================================ */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 56px;
+    }
+    @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr; } }
+
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 320ms var(--ease);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px rgba(30, 144, 255, 0.4), 0 30px 60px -20px rgba(30, 144, 255, 0.25);
+    }
+    .case-card:nth-child(1) { background: linear-gradient(180deg, var(--surface) 0%, #0F1622 100%); }
+    .case-card:nth-child(2) { background: linear-gradient(180deg, var(--surface) 0%, #0A1A26 100%); }
+    .case-card:nth-child(3) { background: linear-gradient(180deg, var(--surface) 0%, #11161F 100%); }
+
+    .case-figure {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .case-company {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 32px;
+    }
+    .case-description {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-top: 18px;
+    }
+    .cases-photo {
+      grid-column: 1 / -1;
+      margin-top: 16px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 21 / 9;
+      border: 1px solid var(--border-strong);
+      position: relative;
+    }
+    /* FOTO 3: David Lopera — sección casos, formato landscape */
+    .cases-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .cases-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(8,8,8,0.7) 100%);
+    }
+    .cases-photo .caption {
+      position: absolute;
+      bottom: 24px;
+      left: 32px;
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ============================================
+       PROCESO (gris claro)
+       ============================================ */
+    .process {
+      background: var(--gray-bg);
+      color: var(--light-text);
+    }
+    .process h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.03em;
+    }
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+      position: relative;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 5%;
+      right: 5%;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,0.16) 0 6px, transparent 6px 12px);
+    }
+    @media (max-width: 900px) {
+      .process-timeline { grid-template-columns: 1fr; gap: 36px; }
+      .process-timeline::before { display: none; }
+    }
+    .process-step {
+      position: relative;
+      z-index: 1;
+    }
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--light-bg);
+      border: 1px solid rgba(0,0,0,0.1);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 26px;
+      color: var(--accent);
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.1);
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: var(--light-text);
+    }
+    .step-desc {
+      color: var(--light-text-2);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    /* ============================================
+       CONTACTO (dark)
+       ============================================ */
+    .contact h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.035em;
+      max-width: 800px;
+      overflow-wrap: break-word;
+    }
+    .contact h2 span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .contact .lead {
+      font-size: 1.1rem;
+      color: var(--text-2);
+      max-width: 600px;
+      margin-top: 18px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 56px;
+    }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      transition: border-color 280ms;
+    }
+    .contact-card:hover { border-color: var(--border-strong); }
+    .contact-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .contact-card p {
+      color: var(--text-2);
+      margin-bottom: 24px;
+      font-size: 14.5px;
+    }
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 240ms;
+      font-size: 14px;
+    }
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: rgba(30, 144, 255, 0.06);
+      color: #fff;
+      transform: translateX(4px);
+    }
+    .contact-link .ico {
+      color: var(--accent-2);
+      flex-shrink: 0;
+    }
+    .contact-link .label {
+      font-size: 11px;
+      color: var(--text-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      margin-bottom: 2px;
+    }
+    .contact-link .value { color: var(--text); font-weight: 500; }
+
+    /* Calendly inline embed */
+    .calendly-inline-widget {
+      min-width: 280px;
+      height: 360px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    /* Form */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-top: 36px;
+    }
+    @media (max-width: 600px) { .form-card { padding: 28px; } }
+    .form-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .form-card .form-sub {
+      color: var(--text-2);
+      margin-bottom: 28px;
+      font-size: 14.5px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+    @media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 200ms;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.18);
+    }
+    .field textarea { resize: vertical; min-height: 130px; font-family: inherit; }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath fill='none' stroke='%23888' stroke-width='1.6' d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 44px;
+    }
+    .field select option { background: var(--surface); color: var(--text); }
+
+    .form-submit {
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .form-disclaimer {
+      font-size: 12px;
+      color: var(--text-2);
+      max-width: 380px;
+    }
+    .form-status {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 999px;
+      display: none;
+    }
+    .form-status.show { display: inline-block; }
+    .form-status.success { background: rgba(0, 212, 100, 0.12); color: #00D472; border: 1px solid rgba(0, 212, 100, 0.3); }
+    .form-status.error { background: rgba(255, 80, 80, 0.12); color: #FF6060; border: 1px solid rgba(255, 80, 80, 0.3); }
+
+    /* ============================================
+       RECURSOS (white)
+       ============================================ */
+    .resources {
+      background: var(--light-bg);
+      color: var(--light-text);
+    }
+    .resources h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.03em;
+    }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    @media (max-width: 900px) { .resources-grid { grid-template-columns: 1fr; } }
+
+    .resource-card {
+      background: var(--gray-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 320ms var(--ease), box-shadow 320ms var(--ease);
+      cursor: pointer;
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.18);
+    }
+    .resource-thumb {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #0A1428 0%, #1E90FF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .resource-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .resource-card:nth-child(2) .resource-thumb { background: linear-gradient(135deg, #051628 0%, #00D4FF 100%); }
+    .resource-card:nth-child(3) .resource-thumb { background: linear-gradient(135deg, #061522 0%, #0F7FE0 100%); }
+
+    .resource-thumb-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+    .resource-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .resource-body h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--light-text);
+      flex: 1;
+    }
+    .resource-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light-text-2);
+      margin-top: 16px;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 80px 0 40px;
+      color: var(--text-2);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .footer .logo { color: var(--text); margin-bottom: 18px; }
+    .footer-tag {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      max-width: 380px;
+      line-height: 1.2;
+    }
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col a { font-size: 14px; color: var(--text); transition: color 200ms; }
+    .footer-col a:hover { color: var(--accent-2); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom .copy { font-size: 13px; }
+    .socials { display: flex; gap: 12px; }
+    .socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--text-2);
+      transition: all 240ms;
+    }
+    .socials a:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 90ms; }
+    .reveal-delay-2 { transition-delay: 180ms; }
+    .reveal-delay-3 { transition-delay: 270ms; }
+
+    /* ============================================
+       DOWNLOAD FAB
+       ============================================ */
+    .download-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 90;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text);
+      backdrop-filter: blur(12px);
+      transition: all 260ms;
+      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
+    }
+    .download-fab:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) { .download-fab { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 1 — NAVBAR -->
+  <!-- ============================================ -->
+  <nav class="nav" id="nav" data-testid="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo" data-testid="navbar-logo">
+        <span class="logo-mark">DL</span>
+        <span>David Lopera</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios" data-testid="nav-link-servicios">Servicios</a></li>
+        <li><a href="#resultados" data-testid="nav-link-resultados">Resultados</a></li>
+        <li><a href="#sobre-mi" data-testid="nav-link-sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto" data-testid="nav-link-contacto">Contacto</a></li>
+      </ul>
+      <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary nav-cta" data-testid="nav-cta-calendly">
+        Agendar llamada
+        <i data-lucide="arrow-right" width="16" height="16"></i>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú" data-testid="menu-btn">
+        <i data-lucide="menu" width="22" height="22"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 2 — HERO -->
+  <!-- ============================================ -->
+  <section class="hero" id="hero" data-testid="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow reveal">CX & Growth · LATAM</span>
+        <h1 class="reveal">14 años convirtiendo experiencias en <span>revenue.</span></h1>
+        <p class="lead reveal reveal-delay-1">
+          Consultor en CX, CRM y Marketing Digital. Resultados medibles para empresas que quieren crecer.
+        </p>
+        <div class="hero-ctas reveal reveal-delay-2">
+          <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary btn-large" data-testid="hero-cta-primary">
+            Agenda una sesión gratuita
+            <i data-lucide="arrow-right" width="18" height="18"></i>
+          </a>
+          <a href="#servicios" class="btn btn-ghost btn-large" data-testid="hero-cta-secondary">
+            Ver mis servicios
+            <i data-lucide="arrow-down" width="18" height="18"></i>
+          </a>
+        </div>
+        <div class="hero-metrics reveal reveal-delay-3">
+          <div class="metric-badge" data-testid="hero-metric-1">
+            <div class="num">$30.000M+ COP</div>
+            <div class="lbl">protegidos en revenue</div>
+          </div>
+          <div class="metric-badge" data-testid="hero-metric-2">
+            <div class="num">NPS +16 pts</div>
+            <div class="lbl">incremento en LATAM</div>
+          </div>
+          <div class="metric-badge" data-testid="hero-metric-3">
+            <div class="num">60%</div>
+            <div class="lbl">resolución autónoma con IA</div>
+          </div>
+          <div class="metric-badge" data-testid="hero-metric-4">
+            <div class="num">5 países · 14 años</div>
+            <div class="lbl">de experiencia comprobada</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal reveal-delay-2">
+        <span class="hero-tag"><span class="dot"></span>Cali · Colombia</span>
+        <!-- FOTO 1: David Lopera — hero, media pantalla derecha, formato portrait. Reemplazar src para sustituir -->
+        <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" alt="David Lopera, consultor CX & Growth" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 3 — BARRA DE CREDIBILIDAD -->
+  <!-- ============================================ -->
+  <section class="credibility light" id="credibility" data-testid="credibility">
+    <div class="container">
+      <div class="cred-grid">
+        <div class="cred-stat reveal" data-testid="cred-stat-1">
+          <div class="number"><span class="counter accent" data-target="30000" data-suffix="">0</span><span class="accent">M+</span></div>
+          <div class="label">COP en revenue protegido</div>
+        </div>
+        <div class="cred-stat reveal reveal-delay-1" data-testid="cred-stat-2">
+          <div class="number"><span class="counter accent" data-target="60" data-suffix="">0</span><span class="accent">%</span></div>
+          <div class="label">resolución autónoma con IA</div>
+        </div>
+        <div class="cred-stat reveal reveal-delay-2" data-testid="cred-stat-3">
+          <div class="number"><span class="counter accent" data-target="84" data-suffix="">0</span><span class="accent">%</span></div>
+          <div class="label">NPS transaccional</div>
+        </div>
+        <div class="cred-stat reveal reveal-delay-3" data-testid="cred-stat-4">
+          <div class="number"><span class="counter accent" data-target="14" data-suffix="">0</span><span class="accent">+</span></div>
+          <div class="label">años de experiencia</div>
+        </div>
+      </div>
+
+      <div class="cred-logos-label">Compañías que han confiado</div>
+      <div class="cred-logos">
+        <div class="cred-logo">Eficacia S.A.</div>
+        <div class="cred-logo">Grupo Pharmetique</div>
+        <div class="cred-logo">Cámara de Comercio Cali</div>
+        <div class="cred-logo">UAO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 4 — SERVICIOS -->
+  <!-- ============================================ -->
+  <section class="services" id="servicios" data-testid="servicios">
+    <div class="container">
+      <div class="services-head">
+        <div>
+          <span class="eyebrow reveal">Servicios · 12 frentes</span>
+          <h2 class="reveal">¿En qué puedo ayudarte?</h2>
+        </div>
+        <p class="reveal reveal-delay-1">
+          Estrategia, ejecución y medición. Trabajo end-to-end en 4 ejes: CX, CRM, Marketing Digital y Tecnología aplicada.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal" data-testid="service-1">
+          <div class="service-icon"><i data-lucide="compass" width="24" height="24"></i></div>
+          <h3>Consultoría CX</h3>
+          <p>Diagnóstico, journey maps, estrategia NPS y retención.</p>
+          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1" data-testid="service-2">
+          <div class="service-icon"><i data-lucide="git-branch" width="24" height="24"></i></div>
+          <h3>CRM &amp; Automatización</h3>
+          <p>Salesforce, Zoho, HubSpot. Implementación y optimización.</p>
+          <div class="service-meta"><span class="tag">CRM</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2" data-testid="service-3">
+          <div class="service-icon"><i data-lucide="megaphone" width="24" height="24"></i></div>
+          <h3>Marketing Digital 360°</h3>
+          <p>Meta Ads, Google Ads, TikTok Ads, YouTube. Estrategia y ejecución.</p>
+          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal" data-testid="service-4">
+          <div class="service-icon"><i data-lucide="layout-template" width="24" height="24"></i></div>
+          <h3>Landing Pages</h3>
+          <p>Alta conversión: copy, diseño, integración y A/B testing.</p>
+          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1" data-testid="service-5">
+          <div class="service-icon"><i data-lucide="globe" width="24" height="24"></i></div>
+          <h3>Páginas Web Empresariales</h3>
+          <p>Diseño profesional, UX/UI, CMS, e-commerce.</p>
+          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2" data-testid="service-6">
+          <div class="service-icon"><i data-lucide="layers" width="24" height="24"></i></div>
+          <h3>Apps SaaS a Medida</h3>
+          <p>MVPs B2B/B2C: diseño de producto y arquitectura funcional.</p>
+          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal" data-testid="service-7">
+          <div class="service-icon"><i data-lucide="bot" width="24" height="24"></i></div>
+          <h3>Chatbots &amp; Voicebots IA</h3>
+          <p>Asistentes omnicanal: WhatsApp, web, Genesys, N8N.</p>
+          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1" data-testid="service-8">
+          <div class="service-icon"><i data-lucide="trending-up" width="24" height="24"></i></div>
+          <h3>Campañas de Performance</h3>
+          <p>CBO/ABO, funnels, optimización CPA y ROAS.</p>
+          <div class="service-meta"><span class="tag">Marketing</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2" data-testid="service-9">
+          <div class="service-icon"><i data-lucide="briefcase" width="24" height="24"></i></div>
+          <h3>Estrategia Comercial</h3>
+          <p>Modelos de desarrollo comercial, segmentación y growth B2B/B2C.</p>
+          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal" data-testid="service-10">
+          <div class="service-icon"><i data-lucide="graduation-cap" width="24" height="24"></i></div>
+          <h3>Formación Corporativa</h3>
+          <p>Talleres CX, IA aplicada, Marketing Digital para equipos.</p>
+          <div class="service-meta"><span class="tag">CX</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1" data-testid="service-11">
+          <div class="service-icon"><i data-lucide="bar-chart-3" width="24" height="24"></i></div>
+          <h3>Dashboards &amp; Analítica</h3>
+          <p>Power BI, Tableau, dashboards HTML. Métricas accionables.</p>
+          <div class="service-meta"><span class="tag">Tech</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2" data-testid="service-12">
+          <div class="service-icon"><i data-lucide="workflow" width="24" height="24"></i></div>
+          <h3>Automatización IA &amp; N8N</h3>
+          <p>Flujos automáticos, integraciones API, RPA.</p>
+          <div class="service-meta"><span class="tag">IA</span><a href="#contacto" class="quote-link">Cotizar <i data-lucide="arrow-right" width="14" height="14"></i></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 5 — SOBRE MÍ -->
+  <!-- ============================================ -->
+  <section class="about light" id="sobre-mi" data-testid="sobre-mi">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <!-- FOTO 2: David Lopera — sección "Sobre mí", formato cuadrado. Reemplazar src para sustituir -->
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/o825r7w0_Gemini_Generated_Image_4jeit64jeit64jei.png" alt="David Lopera — Sobre mí" loading="lazy" />
+        </div>
+        <div class="about-content reveal reveal-delay-1">
+          <span class="eyebrow">Sobre mí</span>
+          <h2>Estrategia y ejecución, sin intermediarios.</h2>
+          <p>
+            Soy David Lopera, consultor con más de 14 años liderando estrategias de CX, CRM y Marketing Digital
+            en Colombia y LATAM. He trabajado con empresas como Eficacia S.A., Grupo Pharmetique,
+            Cámara de Comercio de Cali y decenas de marcas en crecimiento.
+          </p>
+          <p>
+            Combino visión estratégica con ejecución técnica: desde arquitectura de CRM hasta campañas de performance.
+            También soy docente universitario y creo firmemente que el crecimiento sostenible empieza por
+            entender al cliente.
+          </p>
+          <div class="credentials">
+            <span class="credential">Ing. Administrativa</span>
+            <span class="credential">Esp. Gerencia Mercadeo</span>
+            <span class="credential">Maestría Dir. Comercial</span>
+          </div>
+          <a href="#" class="btn btn-light-ghost" data-testid="cta-cv">
+            Descargar hoja de vida
+            <i data-lucide="download" width="16" height="16"></i>
+          </a>
+          <div class="about-companies">
+            <span>Eficacia S.A.</span>
+            <span>·</span>
+            <span>Grupo Pharmetique</span>
+            <span>·</span>
+            <span>CC Cali</span>
+            <span>·</span>
+            <span>UAO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 6 — RESULTADOS / CASOS -->
+  <!-- ============================================ -->
+  <section class="cases" id="resultados" data-testid="resultados">
+    <div class="container">
+      <span class="eyebrow reveal">Resultados</span>
+      <h2 class="reveal" style="font-size: clamp(2rem, 4.4vw, 3.4rem); max-width: 700px;">
+        Resultados reales. Números concretos.
+      </h2>
+
+      <div class="cases-grid">
+        <article class="case-card reveal" data-testid="case-1">
+          <div>
+            <div class="case-company">Cámara de Comercio de Cali</div>
+            <div class="case-figure">60%</div>
+            <p class="case-description">
+              Resolución autónoma con IA y RPA. Reducción del 30% en costos operativos.
+            </p>
+          </div>
+          <div class="service-meta">
+            <span class="tag">IA · CX</span>
+            <span class="quote-link" style="cursor:default;">2024</span>
+          </div>
+        </article>
+
+        <article class="case-card reveal reveal-delay-1" data-testid="case-2">
+          <div>
+            <div class="case-company">Grupo Pharmetique · LATAM</div>
+            <div class="case-figure">NPS +16</div>
+            <p class="case-description">
+              Puntos de incremento en NPS. Tiempos de resolución -38% en 5 países.
+            </p>
+          </div>
+          <div class="service-meta">
+            <span class="tag">CX · CRM</span>
+            <span class="quote-link" style="cursor:default;">2022—2024</span>
+          </div>
+        </article>
+
+        <article class="case-card reveal reveal-delay-2" data-testid="case-3">
+          <div>
+            <div class="case-company">Almacenes Flamingo · Mefía</div>
+            <div class="case-figure">$4.600M</div>
+            <p class="case-description">
+              COP generados en retención y recompra. 50% de revenues en primer año de tarjeta.
+            </p>
+          </div>
+          <div class="service-meta">
+            <span class="tag">Loyalty · Growth</span>
+            <span class="quote-link" style="cursor:default;">2023</span>
+          </div>
+        </article>
+
+        <div class="cases-photo reveal reveal-delay-3">
+          <!-- FOTO 3: David Lopera — sección casos, formato landscape. Reemplazar src para sustituir -->
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/p9yhpnrv_Gemini_Generated_Image_eemle1eemle1eeml.png" alt="David Lopera presentando en CX Day Colombia" loading="lazy" />
+          <span class="caption">Keynote · CX Day Colombia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 7 — PROCESO -->
+  <!-- ============================================ -->
+  <section class="process" id="proceso" data-testid="proceso">
+    <div class="container">
+      <span class="eyebrow reveal">Cómo trabajamos</span>
+      <h2 class="reveal">¿Cómo trabajamos juntos?</h2>
+
+      <div class="process-timeline">
+        <div class="process-step reveal" data-testid="process-step-1">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Diagnóstico</h3>
+          <p class="step-desc">Entendemos tu negocio, clientes y gaps actuales.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1" data-testid="process-step-2">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Estrategia</h3>
+          <p class="step-desc">Diseñamos el plan con objetivos y métricas claras.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2" data-testid="process-step-3">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Ejecución</h3>
+          <p class="step-desc">Implementamos con agilidad. Sin burocracia.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3" data-testid="process-step-4">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Medición</h3>
+          <p class="step-desc">Reportes, KPIs y ajuste continuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 8 — CONTACTO -->
+  <!-- ============================================ -->
+  <section class="contact" id="contacto" data-testid="contacto">
+    <div class="container">
+      <span class="eyebrow reveal">Hablemos</span>
+      <h2 class="reveal">Hablemos de tu <span>negocio.</span></h2>
+      <p class="lead reveal reveal-delay-1">30 minutos. Sin compromiso. Con claridad.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal" data-testid="contact-card-calendly">
+          <h3>Agenda una llamada</h3>
+          <p>Reserva directamente en mi calendario.</p>
+          <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary" data-testid="contact-cta-calendly">
+            Agendar en Calendly
+            <i data-lucide="external-link" width="16" height="16"></i>
+          </a>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/davidloperacx?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111111&text_color=f5f5f5&primary_color=1e90ff"></div>
+        </div>
+
+        <div class="contact-card reveal reveal-delay-1" data-testid="contact-card-direct">
+          <h3>Contacto directo</h3>
+          <p>Escríbeme por el canal que prefieras.</p>
+          <div class="contact-actions">
+            <a href="https://wa.me/573103844519?text=Hola%20David%2C%20quiero%20cotizar%20un%20servicio" target="_blank" rel="noopener" class="contact-link" data-testid="contact-whatsapp">
+              <i data-lucide="message-circle" class="ico" width="22" height="22"></i>
+              <div>
+                <div class="label">WhatsApp</div>
+                <div class="value">+57 310 384 4519</div>
+              </div>
+            </a>
+            <a href="mailto:davidloperacx@gmail.com" class="contact-link" data-testid="contact-email">
+              <i data-lucide="mail" class="ico" width="22" height="22"></i>
+              <div>
+                <div class="label">Email</div>
+                <div class="value">davidloperacx@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/davidloperaCX" target="_blank" rel="noopener" class="contact-link" data-testid="contact-linkedin">
+              <i data-lucide="linkedin" class="ico" width="22" height="22"></i>
+              <div>
+                <div class="label">LinkedIn</div>
+                <div class="value">linkedin.com/in/davidloperaCX</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form class="form-card reveal" id="quote-form" action="https://formspree.io/f/mqenlpwa" method="POST" data-testid="quote-form">
+        <h3>Solicita una cotización</h3>
+        <p class="form-sub">Cuéntame brevemente sobre tu negocio. Te respondo en menos de 24h hábiles.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-name">Nombre completo *</label>
+            <input id="f-name" name="nombre" type="text" required placeholder="Tu nombre" data-testid="form-nombre" />
+          </div>
+          <div class="field">
+            <label for="f-email">Email *</label>
+            <input id="f-email" name="email" type="email" required placeholder="tu@empresa.com" data-testid="form-email" />
+          </div>
+          <div class="field">
+            <label for="f-whatsapp">WhatsApp *</label>
+            <input id="f-whatsapp" name="whatsapp" type="tel" required placeholder="+57 300 000 0000" data-testid="form-whatsapp" />
+          </div>
+          <div class="field">
+            <label for="f-empresa">Empresa (opcional)</label>
+            <input id="f-empresa" name="empresa" type="text" placeholder="Nombre de tu empresa" data-testid="form-empresa" />
+          </div>
+          <div class="field">
+            <label for="f-servicio">Servicio de interés *</label>
+            <select id="f-servicio" name="servicio" required data-testid="form-servicio">
+              <option value="">Selecciona un servicio</option>
+              <option>Consultoría CX</option>
+              <option>CRM &amp; Automatización</option>
+              <option>Marketing Digital 360°</option>
+              <option>Landing Pages</option>
+              <option>Páginas Web Empresariales</option>
+              <option>Apps SaaS a Medida</option>
+              <option>Chatbots &amp; Voicebots IA</option>
+              <option>Campañas de Performance</option>
+              <option>Estrategia Comercial</option>
+              <option>Formación Corporativa</option>
+              <option>Dashboards &amp; Analítica</option>
+              <option>Automatización IA &amp; N8N</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-presupuesto">Presupuesto *</label>
+            <select id="f-presupuesto" name="presupuesto" required data-testid="form-presupuesto">
+              <option value="">Rango estimado</option>
+              <option>Menos de $2M COP</option>
+              <option>$2M–$5M COP</option>
+              <option>$5M–$15M COP</option>
+              <option>$15M+ COP</option>
+              <option>Conversemos</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="f-mensaje">Mensaje / Desafío *</label>
+            <textarea id="f-mensaje" name="mensaje" required placeholder="¿Qué reto de negocio quieres resolver?" data-testid="form-mensaje"></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <p class="form-disclaimer">Al enviar aceptas que David te contacte por email o WhatsApp respecto a tu solicitud. No spam.</p>
+          <span id="form-status" class="form-status"></span>
+          <button type="submit" class="btn btn-primary btn-large" data-testid="form-submit">
+            Enviar solicitud
+            <i data-lucide="send" width="16" height="16"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 9 — RECURSOS -->
+  <!-- ============================================ -->
+  <section class="resources light" id="recursos" data-testid="recursos">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:24px; margin-bottom:8px;">
+        <div>
+          <span class="eyebrow reveal">Insights</span>
+          <h2 class="reveal">Contenido para crecer</h2>
+        </div>
+        <a href="#" class="btn btn-light-ghost reveal reveal-delay-1" data-testid="resources-cta-all">
+          Ver todos los recursos
+          <i data-lucide="arrow-right" width="16" height="16"></i>
+        </a>
+      </div>
+
+      <div class="resources-grid">
+        <article class="resource-card reveal" data-testid="resource-1">
+          <div class="resource-thumb"><span class="resource-thumb-tag">CX · KPIs</span></div>
+          <div class="resource-body">
+            <h3>5 métricas de CX que todo CEO debería monitorear</h3>
+            <span class="resource-meta">Artículo · 8 min</span>
+          </div>
+        </article>
+        <article class="resource-card reveal reveal-delay-1" data-testid="resource-2">
+          <div class="resource-thumb"><span class="resource-thumb-tag">CRM · Implementación</span></div>
+          <div class="resource-body">
+            <h3>Cómo implementar un CRM sin morir en el intento</h3>
+            <span class="resource-meta">Guía · 12 min</span>
+          </div>
+        </article>
+        <article class="resource-card reveal reveal-delay-2" data-testid="resource-3">
+          <div class="resource-thumb"><span class="resource-thumb-tag">Marketing · Performance</span></div>
+          <div class="resource-body">
+            <h3>Meta Ads en 2025: lo que funciona y lo que no</h3>
+            <span class="resource-meta">Análisis · 10 min</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN 10 — FOOTER -->
+  <!-- ============================================ -->
+  <footer class="footer" data-testid="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#hero" class="logo">
+            <span class="logo-mark">DL</span>
+            <span>David Lopera</span>
+          </a>
+          <p class="footer-tag">CX que mueve revenue. Siempre.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="https://linkedin.com/in/davidloperaCX" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:davidloperacx@gmail.com">davidloperacx@gmail.com</a></li>
+            <li><a href="https://wa.me/573103844519" target="_blank" rel="noopener">+57 310 384 4519</a></li>
+            <li><a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener">Agendar en Calendly</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="copy">© 2025 David Lopera · Cali, Colombia</span>
+        <div class="socials">
+          <a href="https://linkedin.com/in/davidloperaCX" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin" width="16" height="16"></i></a>
+          <a href="https://wa.me/573103844519" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle" width="16" height="16"></i></a>
+          <a href="mailto:davidloperacx@gmail.com" aria-label="Email"><i data-lucide="mail" width="16" height="16"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Download FAB -->
+  <a href="/standalone.html" download="david-lopera-landing.html" class="download-fab" data-testid="download-fab" title="Descarga el archivo HTML standalone">
+    <i data-lucide="download" width="14" height="14"></i>
+    <span>Descargar HTML</span>
+  </a>
+
+  <!-- Calendly script -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- ============================================ -->
+  <!-- JS: Navbar scroll, Reveal, Counters, Form -->
+  <!-- ============================================ -->
+  <script>
+    // 1) Navbar scroll behavior
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 32) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // 2) Intersection Observer for reveals
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach((el) => io.observe(el));
+
+    // 3) Animated counters
+    const counters = document.querySelectorAll('.counter');
+    const formatNumber = (n) => {
+      if (n >= 1000) return Math.floor(n).toLocaleString('es-CO');
+      return Math.floor(n).toString();
+    };
+    const animateCounter = (el) => {
+      const target = parseFloat(el.getAttribute('data-target'));
+      const duration = 1600;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        const value = target * eased;
+        el.textContent = formatNumber(value);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = formatNumber(target);
+      };
+      requestAnimationFrame(tick);
+    };
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          animateCounter(e.target);
+          counterIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach((c) => counterIO.observe(c));
+
+    // 4) Form submit (FormSpree)
+    const form = document.getElementById('quote-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.classList.remove('show', 'success', 'error');
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          status.textContent = '✓ Solicitud enviada';
+          status.classList.add('show', 'success');
+          form.reset();
+        } else {
+          throw new Error('FormSpree responded ' + res.status);
+        }
+      } catch (err) {
+        status.textContent = '⚠ Error · intenta de nuevo';
+        status.classList.add('show', 'error');
+      }
+    });
+
+    // 5) Lucide icons
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

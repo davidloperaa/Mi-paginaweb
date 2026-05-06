@@ -1,0 +1,16 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #080808;
+  overflow: hidden;
+}
+
+.dl-frame {
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background: #080808;
+}
