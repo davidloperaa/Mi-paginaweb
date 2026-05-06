@@ -65,15 +65,21 @@
        RESET
        ============================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: clip;
+    }
     body {
       font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 100vw;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -93,7 +99,12 @@
     .container { max-width: var(--container); margin-inline: auto; padding-inline: 24px; }
     section { position: relative; padding-block: 120px; }
     @media (max-width: 768px) {
-      section { padding-block: 80px; }
+      .container { padding-inline: 20px; }
+      section { padding-block: 64px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding-inline: 18px; }
+      section { padding-block: 56px; }
     }
 
     .eyebrow {
@@ -130,6 +141,11 @@
       transition: all 280ms var(--ease);
       white-space: nowrap;
       will-change: transform;
+      min-height: 48px;
+    }
+    @media (max-width: 480px) {
+      .btn { padding: 14px 22px; font-size: 14px; }
+      .btn-large { padding: 16px 26px; font-size: 15px; }
     }
     .btn-primary {
       background: var(--accent);
@@ -186,9 +202,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 24px;
+      padding: 18px 24px;
       max-width: var(--container);
       margin-inline: auto;
+    }
+    @media (max-width: 768px) {
+      .nav-inner { padding: 14px 18px; }
     }
     .logo {
       display: flex;
@@ -240,9 +259,47 @@
     .nav-cta { padding: 12px 22px; font-size: 14px; }
     .menu-btn { display: none; padding: 8px; }
     @media (max-width: 900px) {
-      .nav-links { display: none; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 8, 0.96);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        border-top: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 14px 22px 22px;
+        margin: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li {
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a {
+        display: block;
+        padding: 16px 4px;
+        font-size: 16px;
+        color: var(--text);
+      }
+      .nav-links a::after { display: none; }
       .menu-btn { display: inline-flex; }
       .nav-cta { display: none; }
+      .nav-links .mobile-cta {
+        display: block;
+        margin-top: 12px;
+        padding: 14px 22px;
+        background: var(--accent);
+        color: #fff;
+        text-align: center;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 14px;
+      }
     }
 
     /* ============================================
@@ -250,12 +307,19 @@
        ============================================ */
     .hero {
       min-height: 100vh;
-      padding-top: 120px;
+      padding-top: 110px;
       padding-bottom: 60px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 56px;
+      }
     }
     .hero::before {
       content: '';
@@ -287,7 +351,13 @@
       z-index: 1;
     }
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .hero-grid { gap: 32px; }
+      /* Move photo BEFORE text on mobile so user sees David's face in first viewport */
+      .hero-grid > div:first-child { order: 2; }
+      .hero-grid > .hero-visual { order: 1; }
     }
     .hero h1 {
       font-size: clamp(2.4rem, 5.4vw, 4.6rem);
@@ -327,6 +397,10 @@
       margin-top: 56px;
       max-width: 540px;
     }
+    @media (max-width: 768px) {
+      .hero-metrics { gap: 10px; margin-top: 32px; }
+      .metric-badge { padding: 14px 14px; }
+    }
     .metric-badge {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -363,6 +437,15 @@
       overflow: hidden;
       border: 1px solid var(--border-strong);
       box-shadow: 0 30px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(30, 144, 255, 0.15);
+    }
+    @media (max-width: 768px) {
+      .hero-visual {
+        aspect-ratio: 16 / 11;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: var(--radius);
+      }
+      .hero-visual img { object-position: center 25%; }
     }
     .hero-visual::after {
       content: '';
@@ -922,7 +1005,8 @@
       padding: 48px;
       margin-top: 36px;
     }
-    @media (max-width: 600px) { .form-card { padding: 28px; } }
+    @media (max-width: 768px) { .form-card { padding: 28px 22px; border-radius: var(--radius); } }
+    @media (max-width: 600px) { .form-card { padding: 24px 18px; } }
     .form-card h3 {
       font-size: 1.6rem;
       margin-bottom: 8px;
@@ -958,8 +1042,9 @@
       padding: 14px 16px;
       color: var(--text);
       font-family: inherit;
-      font-size: 15px;
+      font-size: 16px; /* 16px to prevent iOS zoom on focus */
       transition: all 200ms;
+      width: 100%;
     }
     .field input:focus,
     .field select:focus,
@@ -2031,11 +2116,12 @@
         <span class="logo-mark">DL</span>
         <span>David Lopera</span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#servicios" data-testid="nav-link-servicios">Servicios</a></li>
         <li><a href="#resultados" data-testid="nav-link-resultados">Resultados</a></li>
         <li><a href="#sobre-mi" data-testid="nav-link-sobre-mi">Sobre mí</a></li>
         <li><a href="#contacto" data-testid="nav-link-contacto">Contacto</a></li>
+        <li><a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="mobile-cta" data-testid="nav-mobile-cta">Agendar llamada →</a></li>
       </ul>
       <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary nav-cta" data-testid="nav-cta-calendly">
         Agendar llamada
@@ -2927,6 +3013,19 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
+    // 1.5) Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+      // Close mobile menu when an anchor is clicked
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+    }
+
     // 2) Intersection Observer for reveals
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
@@ -3078,6 +3177,17 @@
         } finally {
           brochureBtn.disabled = false;
           setTimeout(() => { brochureLabel.textContent = 'Descargar Brochure (PDF)'; }, 2400);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+indow.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>
+Timeout(() => { brochureLabel.textContent = 'Descargar Brochure (PDF)'; }, 2400);
         }
       });
     }
