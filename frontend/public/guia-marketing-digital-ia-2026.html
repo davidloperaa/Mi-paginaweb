@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía: Marketing Digital con IA · 10 jugadas que están vendiendo en 2026 — David Lopera</title>
+  <meta name="description" content="Guía gratuita por David Lopera. 10 tácticas de Marketing Digital con IA aplicadas en clientes LATAM. Meta Ads, WhatsApp Business, embudos automatizados y más." />
+  <meta name="robots" content="noindex,follow" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23080808%22/><text y=%22.9em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2260%22 font-family=%22Arial Black%22 fill=%22%231E90FF%22>DL</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface-2: #161616;
+      --text: #F5F5F5;
+      --text-2: #888888;
+      --text-3: #BBBBBB;
+      --accent: #1E90FF;
+      --accent-2: #00D4FF;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --gold: #FFC542;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: clip;
+      max-width: 100vw;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* Layout */
+    .container { max-width: 820px; margin-inline: auto; padding-inline: 28px; }
+    @media (max-width: 600px) { .container { padding-inline: 20px; } }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+    .brand:hover { text-decoration: none; }
+    .brand-mark {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center;
+      font-weight: 700; font-size: 12px;
+      color: #061425; letter-spacing: -0.04em;
+    }
+    .topbar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px;
+      font-weight: 600; font-size: 13px;
+      transition: all 240ms cubic-bezier(0.22,1,0.36,1);
+      white-space: nowrap;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      font-family: inherit;
+      min-height: 40px;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 20px -8px rgba(30,144,255,0.55); }
+    .btn-primary:hover { background: #0F7FE0; transform: translateY(-1px); text-decoration: none; }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+    .btn-ghost:hover { border-color: var(--accent); color: #fff; text-decoration: none; }
+    .btn-large { padding: 14px 24px; font-size: 15px; min-height: 48px; }
+
+    /* Hero */
+    .hero {
+      padding: 70px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(30,144,255,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.28);
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 10px var(--accent-2);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+    .hero p.lead {
+      font-size: 1.1rem;
+      color: var(--text-3);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .hero-meta i { color: var(--accent-2); }
+
+    /* Intro card */
+    .intro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin: 50px 0;
+    }
+    .intro-card h2 {
+      font-size: 1.4rem; font-weight: 600;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .intro-card p {
+      color: var(--text-3);
+      margin-bottom: 14px;
+      font-size: 1rem;
+    }
+    .intro-card .signature {
+      display: flex; gap: 14px; align-items: center;
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+    .signature-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border-strong);
+    }
+    .signature-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .signature-text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .signature-text span {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 26px;
+      margin-bottom: 60px;
+    }
+    .toc-title {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+    }
+    .toc li {
+      counter-increment: toc;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 16px; align-items: center;
+    }
+    .toc li:last-child { border-bottom: none; }
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-2);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      min-width: 28px;
+    }
+    .toc a {
+      color: var(--text);
+      flex: 1;
+      font-size: 14.5px;
+      transition: color 200ms;
+    }
+    .toc a:hover { color: var(--accent-2); text-decoration: none; }
+
+    /* Section */
+    .play {
+      padding-top: 24px;
+      margin-bottom: 64px;
+      scroll-margin-top: 80px;
+    }
+    .play-num {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+    }
+    .play h2 {
+      font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .play p {
+      color: var(--text-3);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .play strong { color: var(--text); font-weight: 600; }
+    .play-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 16px;
+    }
+
+    .how {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin: 22px 0;
+    }
+    .how-title {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+    }
+    .how ul { list-style: none; }
+    .how li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 14.5px;
+    }
+    .how li:last-child { margin-bottom: 0; }
+    .how li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .benchmark {
+      background: rgba(255, 197, 66, 0.06);
+      border: 1px solid rgba(255, 197, 66, 0.22);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .benchmark i { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .benchmark .lbl {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .benchmark p { color: var(--text); font-size: 13.5px; margin: 0; }
+
+    /* Callout */
+    .callout {
+      background: linear-gradient(135deg, rgba(30,144,255,0.1), rgba(0,212,255,0.06));
+      border: 1px solid rgba(30,144,255,0.25);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin: 56px 0;
+      text-align: center;
+    }
+    .callout h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .callout h3 span {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .callout p { color: var(--text-3); margin-bottom: 22px; max-width: 540px; margin-inline: auto; }
+    .callout-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer / CTA finale */
+    .finale {
+      background: linear-gradient(135deg, #061425 0%, #0A1F38 100%);
+      border-radius: 20px;
+      padding: 48px 36px;
+      margin-top: 72px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .finale::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(30,144,255,0.2), transparent 60%);
+    }
+    .finale > * { position: relative; z-index: 1; }
+    .finale h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+    .finale h2 span {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .finale p {
+      color: var(--text-3);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+    .finale-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .footer {
+      padding: 30px 0 80px;
+      border-top: 1px solid var(--border);
+      color: var(--text-2);
+      font-size: 13px;
+      display: flex; justify-content: space-between; flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer a { color: var(--text-3); }
+    .footer .links { display: flex; gap: 20px; }
+
+    /* WhatsApp FAB (same as main) */
+    .wa-fab {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 60;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: grid; place-items: center;
+      box-shadow: 0 10px 24px -8px rgba(37,211,102,0.55);
+      transition: transform 220ms;
+    }
+    .wa-fab::before, .wa-fab::after {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.5);
+      animation: pulse 2.4s infinite;
+    }
+    .wa-fab::after { animation-delay: 1.2s; }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    .wa-fab:hover { transform: scale(1.06); text-decoration: none; }
+    .wa-fab svg { position: relative; z-index: 1; }
+
+    /* Print/PDF */
+    @media print {
+      .topbar, .wa-fab, .no-print { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .container { max-width: 100%; padding: 0 28px; }
+      h1, h2, h3 { color: #000 !important; }
+      h1 span, .callout h3 span, .finale h2 span { color: #1E90FF !important; -webkit-text-fill-color: #1E90FF !important; }
+      .play, .intro-card, .toc, .how, .benchmark, .callout, .finale { background: #fff !important; border-color: #ddd !important; color: #222 !important; box-shadow: none !important; }
+      .intro-card p, .play p, .finale p, .toc a { color: #333 !important; }
+      .pill { background: #eef7ff !important; color: #1E90FF !important; border-color: #1E90FF !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar no-print">
+    <div class="container topbar-inner">
+      <a href="/" class="brand" data-testid="guide-brand">
+        <span class="brand-mark">DL</span>
+        <span>David Lopera</span>
+      </a>
+      <div class="topbar-actions">
+        <button type="button" id="pdf-btn" class="btn btn-ghost" data-testid="guide-pdf-btn">
+          <i data-lucide="file-down" width="14" height="14"></i>
+          <span id="pdf-btn-label">Descargar PDF</span>
+        </button>
+        <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary" data-testid="guide-cta-call">
+          Agendar llamada
+          <i data-lucide="arrow-right" width="14" height="14"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="pill"><span class="dot"></span>Guía gratuita · 2026</span>
+      <h1>Marketing Digital con <span>IA</span>: 10 jugadas que están vendiendo en 2026.</h1>
+      <p class="lead">Las mismas tácticas que aplico con clientes en Colombia y LATAM. Probadas, accionables y con benchmarks reales para que las copies y las pongas a correr esta semana.</p>
+      <div class="hero-meta">
+        <span><i data-lucide="user" width="13" height="13"></i> Por David Lopera</span>
+        <span><i data-lucide="clock" width="13" height="13"></i> 12 min de lectura</span>
+        <span><i data-lucide="map-pin" width="13" height="13"></i> Cali, Colombia · LATAM</span>
+        <span><i data-lucide="calendar" width="13" height="13"></i> Edición 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- INTRO CARD -->
+    <article class="intro-card">
+      <h2>Antes de empezar.</h2>
+      <p>
+        El 80% del Marketing Digital que veo ejecutar en LATAM en 2026 sigue siendo el mismo de 2019: campañas manuales, segmentaciones rígidas y embudos rotos. Mientras tanto, las plataformas (Meta, Google, TikTok, YouTube) están entregando IA gratis a quien sepa pedírsela.
+      </p>
+      <p>
+        Esta guía es un destilado de lo que <strong>realmente está moviendo la aguja</strong> con clientes míos este año. Sin teoría académica. Sin "trends" que duran un mes. Diez jugadas concretas que puedes implementar — algunas hoy mismo, otras en 30 días.
+      </p>
+      <div class="signature">
+        <div class="signature-avatar">
+          <img src="https://customer-assets.emergentagent.com/job_davidlopera-cx/artifacts/tvdo0y2p_4.png" alt="David Lopera" />
+        </div>
+        <div class="signature-text">
+          <strong>David Lopera</strong>
+          <span>Consultor · 14+ años · LATAM</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <div class="toc-title">Las 10 jugadas</div>
+      <ol>
+        <li><a href="#play-1">Meta Advantage+ Shopping con full automation</a></li>
+        <li><a href="#play-2">CBO con 20+ creativos generados por IA</a></li>
+        <li><a href="#play-3">WhatsApp Business + Chatbot IA 24/7</a></li>
+        <li><a href="#play-4">Embudo Landing → WhatsApp → CRM automatizado</a></li>
+        <li><a href="#play-5">Google Performance Max con first-party signals</a></li>
+        <li><a href="#play-6">YouTube Shorts Ads con UGC bajo $1 CPM</a></li>
+        <li><a href="#play-7">TikTok Spark Ads escalando creators de nicho</a></li>
+        <li><a href="#play-8">Email automation con flows triggered por comportamiento</a></li>
+        <li><a href="#play-9">Retargeting dinámico de catálogo</a></li>
+        <li><a href="#play-10">Atribución cross-channel con GA4 + Looker Studio</a></li>
+      </ol>
+    </nav>
+
+    <!-- PLAY 1 -->
+    <section class="play" id="play-1">
+      <div class="play-num">— Jugada 01 / 10</div>
+      <h2>Meta Advantage+ Shopping con full automation.</h2>
+      <span class="play-tag">Meta Ads</span><span class="play-tag">E-commerce</span>
+      <p>
+        Meta lleva más de 18 meses entrenando su algoritmo de Advantage+ Shopping Campaigns (ASC) con miles de millones de eventos. En 2026 ya supera consistentemente a las campañas manuales en e-commerce — incluso para anunciantes nuevos.
+      </p>
+      <p>
+        <strong>Por qué funciona:</strong> el algoritmo encuentra audiencias mucho más allá de tus segmentaciones manuales. Lo único que importa es que tu Pixel/Conversions API esté limpio y tengas suficientes eventos optimizables (compras o leads).
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Activa Conversions API server-side (sin esto, ASC no aprende bien)</li>
+          <li>Sube tus mejores 5–10 productos al catálogo, no todo</li>
+          <li>Mete entre 6–10 creativos por campaña — Meta los rota automáticamente</li>
+          <li>Presupuesto inicial mínimo: $20 USD/día x 5 días sin tocar nada</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Benchmark LATAM 2026</div>
+          <p>ROAS promedio entre 4.2× y 6.8× en e-commerce con ticket >$50 USD. Si estás por debajo de 3×, el problema casi siempre está en el creativo, no en el algoritmo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 2 -->
+    <section class="play" id="play-2">
+      <div class="play-num">— Jugada 02 / 10</div>
+      <h2>CBO con 20+ creativos generados por IA.</h2>
+      <span class="play-tag">Meta Ads</span><span class="play-tag">IA Generativa</span>
+      <p>
+        El cuello de botella histórico era producir creativos. En 2026, con Midjourney v7, Sora, ChatGPT y Canva con IA, ya no hay excusa. La nueva regla: <strong>una sola idea de campaña, mínimo 20 variaciones de creativo</strong>, dejando que CBO/ABO encuentre al ganador en 72 horas.
+      </p>
+      <p>
+        Los anunciantes que van con 3–4 creativos están dejando entre 30% y 60% de performance sobre la mesa.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Define un brief base (oferta + objeción + audiencia) en ChatGPT</li>
+          <li>Genera 20+ ángulos de copy distintos (tono, formato, hook)</li>
+          <li>Para cada ángulo: imagen estática, video corto vertical y story</li>
+          <li>CBO con presupuesto x6 vs. ad set; ABO si tienes data histórica fuerte</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Tip avanzado</div>
+          <p>Etiqueta cada creativo con UTM para identificar qué ángulo gana sin depender solo de Meta. Los winners de Meta Ads suelen ganar también en TikTok y YouTube — paquete de 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 3 -->
+    <section class="play" id="play-3">
+      <div class="play-num">— Jugada 03 / 10</div>
+      <h2>WhatsApp Business + Chatbot IA 24/7.</h2>
+      <span class="play-tag">IA</span><span class="play-tag">Conversational</span>
+      <p>
+        WhatsApp en LATAM convierte entre 3× y 5× más que email. La barrera siempre fue: <em>"no puedo tener a alguien respondiendo 24/7"</em>. En 2026 la barrera desapareció: con un chatbot IA bien entrenado (GPT-4 / Claude 3.5 / Gemini) cubres el 60–70% de las consultas con calidad humana.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>API Oficial de WhatsApp Business (no soluciones gris)</li>
+          <li>Stack: N8N + WhatsApp Cloud API + LLM (GPT-4o-mini está en sweet spot precio/calidad)</li>
+          <li>Carga FAQ de tu negocio + tu propuesta de valor + objeciones comunes</li>
+          <li>Define handoff a humano cuando el lead califica (calor alto)</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Caso real (cliente mío)</div>
+          <p>60% de resolución autónoma con IA, reducción del 30% en costos operativos del equipo de servicio al cliente, y +24h de tiempo recuperado del equipo comercial cada semana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 4 -->
+    <section class="play" id="play-4">
+      <div class="play-num">— Jugada 04 / 10</div>
+      <h2>Embudo Landing → WhatsApp → CRM automatizado.</h2>
+      <span class="play-tag">Automatización</span><span class="play-tag">Conversión</span>
+      <p>
+        El error más común: enviar tráfico de Meta/Google a una landing y esperar conversión directa. La realidad: solo el 2–5% convierte en frío. El otro 95% sigue caliente — pero se enfría en horas si no haces follow-up.
+      </p>
+      <p>
+        El embudo ganador en 2026: <strong>Landing → captura WhatsApp (no email) → chatbot IA califica en 2 minutos → si es lead frío entra a nurturing automatizado, si es caliente alerta al equipo comercial</strong>.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Landing con un solo CTA: "Hablar por WhatsApp" (con número pre-llenado)</li>
+          <li>Mensaje inicial automático: 3 preguntas de calificación (presupuesto, urgencia, rol)</li>
+          <li>N8N rutea: lead frío → secuencia 7 días automática · caliente → notificación al equipo comercial</li>
+          <li>HubSpot/Zoho/Pipedrive para gestionar pipeline (no hojas de Excel)</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Lift típico</div>
+          <p>Cambiar email por WhatsApp en captura: +180% a +300% en tasa de respuesta. Combinarlo con chatbot IA: +40% en velocidad de calificación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 5 -->
+    <section class="play" id="play-5">
+      <div class="play-num">— Jugada 05 / 10</div>
+      <h2>Google Performance Max con first-party signals.</h2>
+      <span class="play-tag">Google Ads</span><span class="play-tag">First-party Data</span>
+      <p>
+        Performance Max (PMax) de Google también lleva 2 años madurando. Con el final progresivo de las cookies de terceros, lo que separa una PMax mediocre de una PMax que vende es la calidad de tu <strong>first-party data</strong>: lista de clientes existentes, suscriptores y leads calificados.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Sube Customer Match con tus mejores 1000+ clientes (LTV alto)</li>
+          <li>Crea audiencias de "lookalike" desde esa lista (Similar Audiences)</li>
+          <li>Activa Enhanced Conversions (envía email/teléfono hashed)</li>
+          <li>Mete grupos de assets temáticos: por categoría de producto, no genérico</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Importante</div>
+          <p>Sin Customer Match (mínimo 1000 emails/teléfonos) PMax NO es competitiva en LATAM. Si no tienes esa lista todavía, la jugada 03 + 04 es prerequisito.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 6 -->
+    <section class="play" id="play-6">
+      <div class="play-num">— Jugada 06 / 10</div>
+      <h2>YouTube Shorts Ads con UGC bajo $1 CPM.</h2>
+      <span class="play-tag">YouTube</span><span class="play-tag">UGC</span>
+      <p>
+        El secreto peor guardado de 2026: YouTube Shorts Ads tienen CPMs en LATAM entre $0.40 y $1.20 USD — 5× a 10× más baratos que Meta Reels. La razón: pocos anunciantes saben que existen y casi nadie hace creativos específicos para Shorts.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Activa "Demand Gen" en Google Ads (campaña tipo Shorts/feed)</li>
+          <li>Creativos verticales 9:16, máximo 30s, hook en los primeros 3 segundos</li>
+          <li>UGC casero gana sobre cinematográfico — la audiencia detecta el ad y rebota</li>
+          <li>Optimiza por conversiones (Sales/Leads), nunca por views</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Combo ganador</div>
+          <p>Toma tus 3 mejores creativos UGC de Meta Reels y úsalos en YouTube Shorts. CPMs bajan 4–8× con misma performance de conversión.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 7 -->
+    <section class="play" id="play-7">
+      <div class="play-num">— Jugada 07 / 10</div>
+      <h2>TikTok Spark Ads escalando creators de nicho.</h2>
+      <span class="play-tag">TikTok</span><span class="play-tag">Creators</span>
+      <p>
+        Spark Ads convierten un video orgánico de un creator en un ad pagado. El usuario ve el video con la firma del creator (no la tuya), conserva los likes/comments orgánicos y se siente nativo. Resultado: 2–4× mejor performance que un ad tradicional.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Identifica 5–10 micro-creators en tu nicho (10k–100k seguidores LATAM)</li>
+          <li>Negocia: te entregan el video + autorización Spark Ad por flat fee ($50–$300 USD)</li>
+          <li>Carga el video como Spark Ad en TikTok Ads Manager con código del creator</li>
+          <li>Optimiza con CBO + 3–5 creators en paralelo, mata los que no funcionen en 72h</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Por qué los micro-creators</div>
+          <p>Tasa de engagement: 5–12% vs. 0.8–2% de macro-creators. Audiencias más cualificadas, costo 10× menor por seguidor activo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALLOUT -->
+    <div class="callout no-print">
+      <h3>¿Quieres que implementemos esto <span>juntos</span>?</h3>
+      <p>30 minutos. Sin compromiso. Te muestro cuáles 2–3 jugadas tendrían más impacto en tu negocio específico.</p>
+      <div class="callout-actions">
+        <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+          Agendar llamada
+          <i data-lucide="arrow-right" width="14" height="14"></i>
+        </a>
+        <a href="https://wa.me/573103844519?text=Hola%20David%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20me%20interesa%20conversar." target="_blank" rel="noopener" class="btn btn-ghost btn-large">
+          <i data-lucide="message-circle" width="14" height="14"></i>
+          WhatsApp directo
+        </a>
+      </div>
+    </div>
+
+    <!-- PLAY 8 -->
+    <section class="play" id="play-8">
+      <div class="play-num">— Jugada 08 / 10</div>
+      <h2>Email automation con flows triggered por comportamiento.</h2>
+      <span class="play-tag">Email</span><span class="play-tag">Automation</span>
+      <p>
+        Email no murió — el broadcast genérico sí. Lo que vende en 2026 son <strong>flujos automatizados disparados por comportamiento</strong>: bienvenida (no transaccional), abandono de carrito, reactivación, post-compra, recompra, win-back.
+      </p>
+      <p>
+        Las herramientas: Brevo, Mailerlite, Klaviyo (e-commerce), HubSpot (B2B). Brevo y Mailerlite tienen tier gratuito poderoso para empezar.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Empieza con 3 flujos: Bienvenida (5 emails), Abandono Carrito (3 emails), Post-compra (2 emails)</li>
+          <li>Personaliza con merge tags: nombre, último producto visto, ciudad</li>
+          <li>Usa GPT/Claude para escribir variantes A/B de subject line (la palanca #1)</li>
+          <li>Mide open rate (>30% en LATAM), click rate (>3%), conversión (>1.5%)</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">ROI típico</div>
+          <p>Flow de Abandono de Carrito bien hecho: recupera 12–22% de ventas perdidas. Es la implementación con mejor ROI absoluto en e-commerce LATAM.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 9 -->
+    <section class="play" id="play-9">
+      <div class="play-num">— Jugada 09 / 10</div>
+      <h2>Retargeting dinámico de catálogo (DPA / DCA).</h2>
+      <span class="play-tag">Meta Ads</span><span class="play-tag">Google Ads</span>
+      <p>
+        Si vendes más de 20 productos y NO tienes retargeting dinámico activo, estás regalando 25–40% de tus ventas. DPA (Meta) y DCA (Google) muestran al usuario el producto exacto que vio o agregó al carrito, automáticamente.
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>Sube el catálogo completo a Meta Commerce Manager + Google Merchant Center</li>
+          <li>Activa eventos: ViewContent, AddToCart, InitiateCheckout (Pixel + Conversions API)</li>
+          <li>Crea audiencias por etapa del funnel: View 7d, AddCart 14d, NoCheckout 30d</li>
+          <li>Creativos: carrusel dinámico + collection ad mobile-first</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Lift en e-commerce</div>
+          <p>Activar DPA de Meta + DCA de Google con catálogo de 50+ productos: +15% a +35% en ARPU. Es la palanca con menos esfuerzo / más impacto que existe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY 10 -->
+    <section class="play" id="play-10">
+      <div class="play-num">— Jugada 10 / 10</div>
+      <h2>Atribución cross-channel con GA4 + Looker Studio.</h2>
+      <span class="play-tag">Analítica</span><span class="play-tag">Atribución</span>
+      <p>
+        El error más caro de 2026 sigue siendo: optimizar cada canal por su "ROAS interno" (el que reporta Meta, Google, TikTok separadamente). Eso te lleva a duplicar atribución y sobre-invertir en canales que en realidad no están entregando.
+      </p>
+      <p>
+        La verdad solo aparece cuando consolidas todo en GA4 con modelo de atribución <strong>data-driven</strong> y lo visualizas en Looker Studio (gratis).
+      </p>
+      <div class="how">
+        <div class="how-title">Cómo implementarla</div>
+        <ul>
+          <li>GA4 con Enhanced Measurement + Custom Events (purchase, lead, contact)</li>
+          <li>Conecta Meta Ads, Google Ads, TikTok Ads, email tool a Looker Studio</li>
+          <li>Dashboard único: spend por canal · revenue atribuido GA4 · ROAS real</li>
+          <li>Revisa semanalmente; mata canales con ROAS real <2× sin sentimentalismos</li>
+        </ul>
+      </div>
+      <div class="benchmark">
+        <i data-lucide="target" width="20" height="20"></i>
+        <div>
+          <div class="lbl">Lo que verás</div>
+          <p>Casi siempre: 1 canal está sobre-invertido (ROAS real <2×) y 1–2 canales están sub-invertidos (ROAS real >5×). Reasignar presupuesto sin gastar más: +20–35% en revenue total.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINALE -->
+    <div class="finale">
+      <h2>Sé que es <span>mucho</span>. Por eso existe el atajo.</h2>
+      <p>
+        Estas 10 jugadas implementadas mal cuestan tiempo, dinero y credibilidad interna. Implementadas bien — en el orden correcto, con benchmarks y métricas claras — pueden duplicar tu revenue digital en 6–9 meses.
+      </p>
+      <p style="font-size:0.95rem; margin-bottom:30px;">
+        Si quieres saltar la curva de aprendizaje, agendamos 30 minutos. Te digo exactamente cuál de las 10 te conviene priorizar para tu caso, y te doy un plan de implementación con números.
+      </p>
+      <div class="finale-cta">
+        <a href="https://calendly.com/davidloperacx" target="_blank" rel="noopener" class="btn btn-primary btn-large" data-testid="finale-cta-calendly">
+          Agendar 30 min
+          <i data-lucide="calendar" width="14" height="14"></i>
+        </a>
+        <a href="https://wa.me/573103844519?text=Hola%20David%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20me%20interesa%20conversar." target="_blank" rel="noopener" class="btn btn-ghost btn-large" data-testid="finale-cta-whatsapp">
+          <i data-lucide="message-circle" width="14" height="14"></i>
+          WhatsApp directo
+        </a>
+        <a href="/" class="btn btn-ghost btn-large" data-testid="finale-cta-home">
+          <i data-lucide="home" width="14" height="14"></i>
+          Volver a la página
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>© 2026 David Lopera · Cali, Colombia</span>
+      <div class="links">
+        <a href="https://linkedin.com/in/davidloperaCX" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:davidloperacx@gmail.com">Email</a>
+        <a href="/">Volver al sitio</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/573103844519?text=Hola%20David%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20me%20interesa%20conversar." target="_blank" rel="noopener" class="wa-fab no-print" aria-label="WhatsApp" data-testid="guide-wa-fab">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+
+    // PDF download via html2pdf
+    const pdfBtn = document.getElementById('pdf-btn');
+    const pdfLabel = document.getElementById('pdf-btn-label');
+    pdfBtn.addEventListener('click', async () => {
+      if (!window.html2pdf) {
+        pdfLabel.textContent = 'Cargando...';
+        await new Promise(res => {
+          const i = setInterval(() => { if (window.html2pdf) { clearInterval(i); res(); } }, 100);
+          setTimeout(() => { clearInterval(i); res(); }, 8000);
+        });
+      }
+      if (!window.html2pdf) { pdfLabel.textContent = 'Error'; return; }
+      pdfBtn.disabled = true;
+      pdfLabel.textContent = 'Generando...';
+      try {
+        // Switch to print-friendly mode
+        document.body.style.background = '#fff';
+        const main = document.querySelector('main.container');
+        await window.html2pdf().set({
+          margin: 12,
+          filename: 'Guia-Marketing-Digital-IA-2026-David-Lopera.pdf',
+          image: { type: 'jpeg', quality: 0.95 },
+          html2canvas: { scale: 1.6, useCORS: true, backgroundColor: '#FFFFFF', logging: false },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
+          pagebreak: { mode: ['css', 'legacy'], avoid: ['.play', '.callout', '.finale', '.intro-card', '.toc'] }
+        }).from(main).save();
+        pdfLabel.textContent = '✓ Descargado';
+      } catch (e) {
+        console.error(e);
+        pdfLabel.textContent = '⚠ Error';
+      } finally {
+        document.body.style.background = '';
+        pdfBtn.disabled = false;
+        setTimeout(() => { pdfLabel.textContent = 'Descargar PDF'; }, 2400);
+      }
+    });
+  </script>
+</body>
+</html>
